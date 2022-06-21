@@ -1,9 +1,7 @@
-const { Console } = require("console")
-
 module.exports = {
     name: 'ready',
     once: true,
     execute(client){
         console.log("I'am ready !");
     }
-}
+};
