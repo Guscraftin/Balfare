@@ -13,9 +13,9 @@ module.exports = {
         const embed = new MessageEmbed()
             .setAuthor({ name: `${member.user.tag} (${member.id})`, iconURL: member.user.displayAvatarURL() })
             .setColor('#21ff81')
-            .setDescription(`± Nom d'utilisateur : ${member}
-            ± Créé le : ${accountCreationTimestamp} (${relativeAccountCreationTimestamp})
-            ± Rejoint le : ${accountJoinTimestamp} (${relativeAccountJoinTimestamp})
+            .setDescription(`• Nom d'utilisateur : ${member} - \`${member.user.tag}\` (${member.id})
+            • Créé le : ${accountCreationTimestamp} (${relativeAccountCreationTimestamp})
+            • Rejoint le : ${accountJoinTimestamp} (${relativeAccountJoinTimestamp})
             `)
             .setTimestamp()
             .setFooter({ text: "L'utilisateur a rejoint !" })
