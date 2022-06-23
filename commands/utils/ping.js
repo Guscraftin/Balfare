@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'ping',
     description: 'Répond Pong!',
-    run: (client, message, args) => {
+    run (client, message, args) {
         const embed = new MessageEmbed()
             .setTitle('🏓 Pong!')
             .setURL('https://discord.com')
@@ -17,7 +17,7 @@ module.exports = {
 
         message.channel.send({ embeds: [embed] });
     },
-    runSlash: (client, interaction) => {
+    runSlash (client, interaction) {
         const embed = new MessageEmbed()
             .setTitle('🏓 Pong!')
             .setURL('https://discord.com')
