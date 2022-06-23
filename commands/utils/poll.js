@@ -31,7 +31,7 @@ module.exports = {
             required: true,
         }
     ],
-    async runSlash (client, interaction) {
+    async runInteraction (client, interaction) {
         const pollTitle = interaction.options.getString('title');
         const pollContent = interaction.options.getString('content');
 
