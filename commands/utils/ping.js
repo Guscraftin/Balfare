@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'ping',
+    category: 'utils',
     permissions: [],
     description: 'Répond Pong!',
     async run (client, message, args) {
