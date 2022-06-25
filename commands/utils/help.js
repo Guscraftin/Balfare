@@ -3,15 +3,22 @@ const { readdirSync } = require('fs');
 const commandFolder = readdirSync('./commands');
 const prefix = '°';
 
+const contextDescription = {
+    userinfo : "Renvoie des informations sur l'utilisateur"
+}
+
 module.exports = {
     name: 'help',
     category: 'utils',
-    permissions: ['ADMINISTRATOR'],
-    description: 'Commande help !',
+    permissions: ['SEND_MESSAGES'],
+    ownerOnly: false,
+    usage: 'ping <command>',
+    examples: ['help', 'help ping', 'help emit'],
+    description: 'Renvoie une liste de commande filtrée par catégorie',
     async run (client, message, args) {
         if (!args.length){
             const noArgsEmbed = new MessageEmbed()
-                .setColor('#f54ea7')
+                .setColor('#6e4aff')
                 .addField('Liste des commandes', `Liste de toutes les catégories disponibles et leurs commandes.\nPour plus d'informations sur une commande, tapez \`${prefix}help <commande>\``)
 
             for (const category of commandFolder){
@@ -27,13 +34,22 @@ module.exports = {
         const cmd = client.commands.get(args[0]);
         if (!cmd) return message.reply("Cette commande n'existe pas !");
 
-        const argsEmbed = new MessageEmbed()
-            .setColor('#f54ea7')
-            .setTitle(`\`${cmd.name}\``)
-            .setDescription(cmd.description)
-            .setFooter({ text: `Permission(s) requise(s): ${cmd.permissions.join(', ')}` });
+        return message.channel.send(`
+\`\`\`makefile
+[Help: Commande -> ${cmd.name}] ${cmd.ownerOnly ? '/!\\ Pour les admins du bot uniquement /!\\' : ''}
 
-        return message.channel.send({ embeds : [argsEmbed] });
+${cmd.description ? cmd.description : contextDescription[`${cmd.name}`]}
+
+Permissions: ${cmd.permissions.join(', ')}
+Utilisation: ${prefix}${cmd.usage}
+Exemples: ${prefix}${cmd.examples.join(` | ${prefix}`)}
+
+---
+
+${prefix} = prefix utiliser pour le bot (/comandes sont aussi disponibles)
+{} = sous-commande(s) disponible(s) | [] = option(s) obligatoire(s) | <> = option(s) optionnelle(s)
+Ne pas inclure ces caractères -> {}, [] et <> dans vos commandes.
+        \`\`\``);
     },
     options: [
         {
@@ -48,7 +64,7 @@ module.exports = {
 
         if (!cmdName){
             const noArgsEmbed = new MessageEmbed()
-                .setColor('#f54ea7')
+                .setColor('#6e4aff')
                 .addField('Liste des commandes', `Liste de toutes les catégories disponibles et leurs commandes.\nPour plus d'informations sur une commande, tapez \`${prefix}help <commande>\``)
 
             for (const category of commandFolder){
@@ -64,12 +80,21 @@ module.exports = {
         const cmd = client.commands.get(cmdName);
         if (!cmd) return interaction.reply({ content: "Cette commande n'existe pas !", ephemeral: true });
 
-        const argsEmbed = new MessageEmbed()
-            .setColor('#f54ea7')
-            .setTitle(`\`${cmd.name}\``)
-            .setDescription(cmd.description)
-            .setFooter({ text: `Permission(s) requise(s): ${cmd.permissions.join(', ')}` });
+        return interaction.reply({ content:
+`\`\`\`makefile
+[Help: Commande -> ${cmd.name}] ${cmd.ownerOnly ? '/!\\ Pour les admins du bot uniquement /!\\' : ''}
 
-        return interaction.reply({ embeds : [argsEmbed], ephemeral: true });
+${cmd.description ? cmd.description : contextDescription[`${cmd.name}`]}
+
+Permissions: ${cmd.permissions.join(', ')}
+Utilisation: ${prefix}${cmd.usage}
+Exemples: ${prefix}${cmd.examples.join(` | ${prefix}`)}
+
+---
+
+${prefix} = prefix utiliser pour le bot (/comandes sont aussi disponibles)
+{} = sous-commande(s) disponible(s) | [] = option(s) obligatoire(s) | <> = option(s) optionnelle(s)
+Ne pas inclure ces caractères -> {}, [] et <> dans vos commandes.
+        \`\`\``, ephemeral: true});
     }
 };
