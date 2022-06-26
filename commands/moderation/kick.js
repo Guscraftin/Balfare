@@ -1,4 +1,3 @@
-const { MessageEmbed } = require('discord.js');
 
 // Can kick everyone by being Owner
 
@@ -8,7 +7,7 @@ module.exports = {
     permissions: ['KICK_MEMBERS'],
     ownerOnly: false,
     usage: 'kick [@member] [reason]',
-    examples: ['kick @Alfare', 'kick @Alfare Spam'],
+    examples: ['kick @Alfare Spam'],
     description: 'Kick un utilisateur avec une raison.',
     async run (client, message, args) {
         if (!args[0]) return message.reply("Spécifier un membre à kick !");
