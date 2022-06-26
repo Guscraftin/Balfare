@@ -3,8 +3,8 @@ const dotenv = require('dotenv'); dotenv.config();
 const client = new Client({ intents: 515 });
 const Logger = require('./utils/Logger');
 
-['commands', 'buttons'].forEach(x => client[x] = new Collection());
-['CommandUtil', 'EventUtil', 'ButtonUtil'].forEach(handler => { require(`./utils/handlers/${handler}`)(client) });
+['commands', 'buttons', 'selects'].forEach(x => client[x] = new Collection());
+['CommandUtil', 'EventUtil', 'ButtonUtil', 'SelectUtil'].forEach(handler => { require(`./utils/handlers/${handler}`)(client) });
 
 process.on('exit', code => { Logger.client(`Le processus s'est arrêté avec le code : ${code}`) });
 
