@@ -34,6 +34,8 @@ module.exports = {
             name: 'duration',
             description: 'La durée du ban (en jours)',
             type: 'NUMBER',
+            minValue: 1,
+            maxValue: 7,
             required: true
         },
         {
