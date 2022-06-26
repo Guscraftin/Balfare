@@ -1,3 +1,5 @@
+const ownerId = '265785336175656970';
+
 module.exports = {
     name: 'interactionCreate',
     once: false,

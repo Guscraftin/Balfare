@@ -29,13 +29,13 @@ const buttons = new MessageActionRow()
     )
 
 module.exports = {
-    name: 'foo',
+    name: 'button',
     category: 'utils',
     permissions: ['SEND_MESSAGES'],
-    ownerOnly: false,
-    usage: 'foo',
-    examples: ['foo'],
-    description: "foo",
+    ownerOnly: true,
+    usage: 'button',
+    examples: ['button'],
+    description: "Permet de tester le fonctionnement des bouttons",
     async run (client, message, args) {
         await message.channel.send({ content: 'Cliquer sur les boutons', components: [buttons] });
     },
