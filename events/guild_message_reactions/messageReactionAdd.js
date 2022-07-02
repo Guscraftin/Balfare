@@ -1,7 +1,7 @@
 module.exports = {
     name: 'messageReactionAdd',
     once: false,
-    execute(client, messageReaction, user){
+    async execute(client, messageReaction, user){
         const message = messageReaction.message;
         const emojiName = messageReaction.emoji.name;
         const member = message.guild.members.cache.get(user.id);
