@@ -1,6 +1,6 @@
 const { Client, Collection } = require('discord.js');
 const dotenv = require('dotenv'); dotenv.config();
-const client = new Client({ intents: 515 });
+const client = new Client({ intents: 1539, partials: ['USER', 'CHANNEL', 'MESSAGE', 'REACTION'] });
 const Logger = require('./utils/Logger');
 
 ['commands', 'buttons', 'selects'].forEach(x => client[x] = new Collection());
