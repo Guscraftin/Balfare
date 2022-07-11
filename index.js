@@ -27,8 +27,8 @@ mongoose.connect(process.env.DATABASE_URI, {
     serverSelectionTimeoutMS: 5000,
     socketTimeoutMS: 45000,
     family: 4
-}).then(() => { console.log('Le client est connecté à la base de donnée !'); })
-.catch(err => { console.log(err); });
+}).then(() => { Logger.client('- connecté à la base de donnée !'); })
+.catch(err => { Logger.error(err); });
 
 
 client.login(process.env.DISCORD_TOKEN);
