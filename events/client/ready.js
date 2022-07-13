@@ -11,7 +11,8 @@ module.exports = {
 
         client.user.setPresence({ activities: [{ name: `mon développement`, type: 'WATCHING' }], status: 'dnd' });
 
-        const devGuild = await client.guilds.cache.get('746002648506826793');
-        devGuild.commands.set(client.commands.map(cmd => cmd));
+        // const devGuild = await client.guilds.cache.get('746002648506826793');
+        // devGuild.commands.set(client.commands.map(cmd => cmd));
+        client.application.commands.set(client.commands.map(cmd => cmd));
     }
 };
