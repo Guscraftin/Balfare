@@ -1,21 +1,20 @@
-const guild = require("../../models/guild");
-
-const prefix = '°';
 const ownerId = '265785336175656970';
 
 module.exports = {
     name: 'messageCreate',
     once: false,
     async execute(client, message){
-        if (message.author.bot) return;
-        if (!message.content.startsWith(prefix)) return;
-
         let guildSettings = await client.getGuild(message.guild);
 
         if (!guildSettings) {
             await client.createGuild(message.guild);
             guildSettings = await client.getGuild(message.guild);
+            return message.reply('Le bot a mis à jour la base de données pour votre serveur, merci de retaper la commande !');
         }
+        
+        const prefix = guildSettings.prefix;
+        if (message.author.bot) return;
+        if (!message.content.startsWith(prefix)) return;
 
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const cmdName = args.shift().toLowerCase();

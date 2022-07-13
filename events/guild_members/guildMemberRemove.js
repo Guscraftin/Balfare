@@ -4,6 +4,7 @@ module.exports = {
     name: 'guildMemberRemove',
     once: false,
     async execute(client, member){
+        const fetchGuild = await client.getGuild(member.guild);
         const fetchKickLog = await member.guild.fetchAuditLogs({
             limit: 1,
             type: 'MEMBER_KICK'
@@ -27,7 +28,7 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: "L'utilisateur a quitté !" })
 
-        const logChannel = client.channels.cache.get('989109926200762409');
-        logChannel.send({ embeds: [embed] });
+            const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+            logChannel.send({ embeds: [embed] });
     }
 };

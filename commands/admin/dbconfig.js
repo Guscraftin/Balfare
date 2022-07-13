@@ -9,7 +9,7 @@ module.exports = {
     examples: ['dbconfig', 'dbconfig prefix ?', 'dbconfig prefix'],
     description: 'Configurer les données de la base de donnée !',
     async run (client, message, args, guildSettings) {
-        if (!args[0] || !args[0].match(/^(prefix|logChannel)$/)) return message.reply("Merci d'entrer une clé valide (`prefix`/`logChannel`)");
+        if (!args[0] || !args[0].match(/^(prefix|logChannel|testChannel)$/)) return message.reply("Merci d'entrer une clé valide (`prefix`/`logChannel`/`testChannel`)");
         const value = args[1];
 
         if (args[0] == 'prefix') {
@@ -23,7 +23,13 @@ module.exports = {
                 await client.updateGuild(message.guild, { logChannel: value });
                 return message.reply({ content: `Nouvelle valeur de logChannel: \`${value}\``});
             }
-            message.reply({ content: `Valeur de prefix: \`${guildSettings.logChannel}\``});
+            message.reply({ content: `Valeur de logChannel: \`${guildSettings.logChannel}\``});
+        } else if (args[0] == 'testChannel') {
+            if (value) {
+                await client.updateGuild(message.guild, { testChannel: value });
+                return message.reply({ content: `Nouvelle valeur de testChannel: \`${value}\``});
+            }
+            message.reply({ content: `Valeur de testChannel: \`${guildSettings.testChannel}\``});
         }
     },
     options: [
@@ -40,6 +46,10 @@ module.exports = {
                 {
                     name: 'logChannel',
                     value: 'logChannel'
+                },
+                {
+                    name: 'testChannel',
+                    value: 'testChannel'
                 }
             ]
         },
@@ -64,7 +74,13 @@ module.exports = {
                 await client.updateGuild(interaction.guild, { logChannel: value });
                 return interaction.reply({ content: `Nouvelle valeur de logChannel: \`${value}\``});
             }
-            interaction.reply({ content: `Valeur de prefix: \`${guildSettings.logChannel}\``});
+            interaction.reply({ content: `Valeur de logChannel: \`${guildSettings.logChannel}\``});
+        } else if (key == 'testChannel') {
+            if (value) {
+                await client.updateGuild(interaction.guild, { testChannel: value });
+                return interaction.reply({ content: `Nouvelle valeur de testChannel: \`${value}\``});
+            }
+            interaction.reply({ content: `Valeur de testChannel: \`${guildSettings.testChannel}\``});
         }
     }
 };

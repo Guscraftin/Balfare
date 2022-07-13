@@ -9,6 +9,7 @@ module.exports = {
         if (!guildSettings) {
             await client.createGuild(interaction.guild);
             guildSettings = await client.getGuild(interaction.guild);
+            return interaction.reply('Le bot a mis à jour la base de données pour votre serveur, merci de retaper la commande !');
         }
 
         if (interaction.isCommand() || interaction.isContextMenu()){

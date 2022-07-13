@@ -1,7 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const { readdirSync } = require('fs');
 const commandFolder = readdirSync('./commands');
-const prefix = '°';
 
 const contextDescription = {
     userinfo : "Renvoie des informations sur l'utilisateur"
@@ -15,7 +14,9 @@ module.exports = {
     usage: 'ping <command>',
     examples: ['help', 'help ping', 'help emit'],
     description: 'Renvoie une liste de commande filtrée par catégorie',
-    async run (client, message, args) {
+    async run (client, message, args, guildSettings) {
+        const prefix = guildSettings.prefix;
+
         if (!args.length){
             const noArgsEmbed = new MessageEmbed()
                 .setColor('#6e4aff')
@@ -59,7 +60,8 @@ Ne pas inclure ces caractères -> {}, [] et <> dans vos commandes.
             required: false,
         }
     ],
-    async runInteraction (client, interaction) {
+    async runInteraction (client, interaction, guildSettings) {
+        const prefix = guildSettings.prefix;
         const cmdName = interaction.options.getString('command');
 
         if (!cmdName){
