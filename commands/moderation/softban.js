@@ -9,20 +9,6 @@ module.exports = {
     usage: 'ban [@member] [duration] [reason]',
     examples: ['ban @Alfare 4 Spam', 'ban @Alfare 6 Spam massif'],
     description: 'Bannir un utilisateur temporairement avec une raison.',
-    async run (client, message, args) {
-        if (!args[0]) return message.reply("Spécifier un membre à ban !");
-        if (isNaN(args[1]) || !args[1] || args[1] > 7 || args[1] < 1) return message.reply("Spécifier une durée pour votre ban **(entre 1 et 7 jours)** !")
-        if (!args[1]) return message.reply("Spécifier une raison à votre ban !");
-
-        const target = message.mentions.members.find(m => m.id);
-        const duration = args[1];
-        const reason = args.slice(2).join(' ');
-
-        if (!target.bannable) return message.reply("Ce membre ne peut pas être ban par le bot !");
-        
-        target.ban({ days: duration, reason: reason });
-        message.channel.send(`Le ${target} a été ban pour ${duration} jours !`);
-    },
     options: [
         {
             name: 'target',

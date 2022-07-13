@@ -1,4 +1,4 @@
-const ownerId = '265785336175656970';
+const ownerId = process.env.OWNER_ID;
 
 module.exports = {
     name: 'interactionCreate',

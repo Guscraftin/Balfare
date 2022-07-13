@@ -8,20 +8,6 @@ module.exports = {
     usage: 'poll [question]',
     examples: ['poll Quelle heure est-il ?'],
     description: 'Poster votre propre sondage!',
-    async run (client, message, args) {
-        if (!args[0]) return message.reply("Merci d'entrer une question pour votre sondage !");
-
-        const embed = new MessageEmbed()
-            .setTitle('Sondage')
-            .setColor('#00a3b5')
-            .setDescription(args.slice(0).join(' '))
-            .setTimestamp()
-            .setFooter({ text: `Nouveau sondage généré par ${message.author.tag} !` })
-
-        const poll = await message.reply({ embeds: [embed] });
-        poll.react('<:Yes:989431637873946674>');
-        poll.react('❌');
-    },
     options: [
         {
             name: 'title',

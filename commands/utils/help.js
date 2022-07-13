@@ -14,44 +14,6 @@ module.exports = {
     usage: 'ping <command>',
     examples: ['help', 'help ping', 'help emit'],
     description: 'Renvoie une liste de commande filtrée par catégorie',
-    async run (client, message, args, guildSettings) {
-        const prefix = guildSettings.prefix;
-
-        if (!args.length){
-            const noArgsEmbed = new MessageEmbed()
-                .setColor('#6e4aff')
-                .addField('Liste des commandes', `Liste de toutes les catégories disponibles et leurs commandes.\nPour plus d'informations sur une commande, tapez \`${prefix}help <commande>\``)
-
-            for (const category of commandFolder){
-                noArgsEmbed.addField(
-                    `• ${category.replace(/(^\w|\s\w)/g, firstLetter => firstLetter.toUpperCase())}`,
-                    `\`${client.commands.filter(cmd => cmd.category == category.toLowerCase()).map(cmd => cmd.name).join('\`, \`')}\``
-                );
-            }
-
-            return message.channel.send({ embeds : [noArgsEmbed] });
-        }
-
-        const cmd = client.commands.get(args[0]);
-        if (!cmd) return message.reply("Cette commande n'existe pas !");
-
-        return message.channel.send(`
-\`\`\`makefile
-[Help: Commande -> ${cmd.name}] ${cmd.ownerOnly ? '/!\\ Pour les admins du bot uniquement /!\\' : ''}
-
-${cmd.description ? cmd.description : contextDescription[`${cmd.name}`]}
-
-Permissions: ${cmd.permissions.join(', ')}
-Utilisation: ${prefix}${cmd.usage}
-Exemples: ${prefix}${cmd.examples.join(` | ${prefix}`)}
-
----
-
-${prefix} = prefix utiliser pour le bot (/comandes sont aussi disponibles)
-{} = sous-commande(s) disponible(s) | [] = option(s) obligatoire(s) | <> = option(s) optionnelle(s)
-Ne pas inclure ces caractères -> {}, [] et <> dans vos commandes.
-        \`\`\``);
-    },
     options: [
         {
             name: 'command',
@@ -61,7 +23,7 @@ Ne pas inclure ces caractères -> {}, [] et <> dans vos commandes.
         }
     ],
     async runInteraction (client, interaction, guildSettings) {
-        const prefix = guildSettings.prefix;
+        const prefix = '/';
         const cmdName = interaction.options.getString('command');
 
         if (!cmdName){

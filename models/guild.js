@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const guildSchema = mongoose.Schema({
     id: String,
-    prefix: { 'type': String, 'default': '°' },
     logChannel: { 'type': String, 'default': '989109926200762409' },
     testChannel: { 'type': String, 'default': '749268027857567874' }
 });

@@ -4,9 +4,11 @@ const mongoose = require('mongoose');
 const client = new Client({ intents: 1539, partials: ['USER', 'CHANNEL', 'MESSAGE', 'REACTION'] });
 const Logger = require('./utils/Logger');
 
+
 ['commands', 'buttons', 'selects'].forEach(x => client[x] = new Collection());
 ['CommandUtil', 'EventUtil', 'ButtonUtil', 'SelectUtil'].forEach(handler => { require(`./utils/handlers/${handler}`)(client) });
 require('./utils/Functions')(client);
+
 
 process.on('exit', code => { Logger.client(`Le processus s'est arrêté avec le code : ${code}`) });
 
@@ -21,6 +23,7 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 process.on('warning', (...args) => { Logger.warn(...args) });
+
 
 mongoose.connect(process.env.DATABASE_URI, {
     autoIndex: false,

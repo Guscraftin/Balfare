@@ -36,9 +36,6 @@ module.exports = {
     usage: 'button',
     examples: ['button'],
     description: "Permet de tester le fonctionnement des bouttons",
-    async run (client, message, args) {
-        await message.channel.send({ content: 'Cliquer sur les boutons', components: [buttons] });
-    },
     async runInteraction (client, interaction) {
         await interaction.reply({ content: 'Cliquer sur les boutons', components: [buttons] });
     }

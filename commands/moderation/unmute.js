@@ -8,16 +8,6 @@ module.exports = {
     usage: 'unmute [@member]',
     examples: ['unmute @Alfare'],
     description: 'Démute un utilisateur.',
-    async run (client, message, args) {
-        if (!args[0]) return message.reply("Spécifier un membre à démute !");
-
-        const target = message.mentions.members.find(m => m.id);
-
-        if (!target.isCommunicationDisabled()) return message.reply("Ce membre ne peut pas être démute par le bot car il n'est pas mute !");
-        
-        target.timeout(null);
-        message.channel.send(`Le membre ${target} a été démute !`);
-    },
     options: [
         {
             name: 'target',

@@ -10,22 +10,6 @@ module.exports = {
     usage: 'mute [@member] [duration] [reason]',
     examples: ['mute @Alfare 4 minutes raison'],
     description: 'Mute un utilisateur temporairement avec une raison.',
-    async run (client, message, args) {
-        if (!args[0]) return message.reply("Spécifier un membre à mute !");
-        if (!args[1] || !args[2]) return message.reply("Spécifier une durée pour votre mute !")
-        if (!args[3]) return message.reply("Spécifier une raison à votre mute !");
-
-        const target = message.mentions.members.find(m => m.id);
-        const duration = args.slice(1, 3).join(' ');
-        const convertedTime = ms(duration);
-        const reason = args.slice(3).join(' ');
-
-        if (!target.moderatable) return message.reply("Ce membre ne peut pas être mute par le bot !");
-        if (!convertedTime) return message.reply("Spécifier une durée valable !");
-        
-        target.timeout(convertedTime, reason);
-        message.channel.send(`Le membre ${target} a été mute pour ${duration} car ${reason} !`);
-    },
     options: [
         {
             name: 'target',

@@ -11,8 +11,14 @@ module.exports = {
 
         client.user.setPresence({ activities: [{ name: `mon développement`, type: 'WATCHING' }], status: 'dnd' });
 
-        // const devGuild = await client.guilds.cache.get('746002648506826793');
-        // devGuild.commands.set(client.commands.map(cmd => cmd));
-        client.application.commands.set(client.commands.map(cmd => cmd));
+
+        /* Deployment of commands */
+
+        const devGuild = await client.guilds.cache.get('746002648506826793');
+        devGuild.commands.set(client.commands.map(cmd => cmd));
+        // devGuild.commands.set([]); // Remove all slash commands from a server
+        
+        // client.application.commands.set(client.commands.map(cmd => cmd));
+        // client.application.commands.set([]); // Delete all global slash commands
     }
 };

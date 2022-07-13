@@ -34,9 +34,6 @@ module.exports = {
     usage: 'roles',
     examples: ['roles'],
     description: "Permet d'afficher le menu pour choisir des rôles",
-    async run (client, message, args) {
-        await message.channel.send({ content: 'Choisir un rôle', components: [selectMenu] });
-    },
     async runInteraction (client, interaction) {
         await interaction.reply({ content: 'Choisir un rôle', components: [selectMenu] });
     }
