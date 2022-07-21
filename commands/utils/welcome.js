@@ -14,8 +14,8 @@ const buttons = new MessageActionRow()
     )
 
 const welcomeEmbed = new MessageEmbed()
-        .setTitle('Chartes du serveur')
-        .setDescription('Ne pas spam...')
+        .setTitle('Règlement du serveur')
+        .setDescription('Respecter les chartes de discord (accessible en bas de leur site)')
         .setFooter({ text: 'Bienvenue sur le serveur' })
         .setTimestamp()
 
