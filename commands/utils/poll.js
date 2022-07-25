@@ -4,7 +4,7 @@ module.exports = {
     name: 'poll',
     category: 'utils',
     permissions: ['SEND_MESSAGES'],
-    ownerOnly: false,
+    ownerOnly: true,
     usage: 'poll [question]',
     examples: ['poll Quelle heure est-il ?'],
     description: 'Poster votre propre sondage!',

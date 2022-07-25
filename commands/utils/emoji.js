@@ -2,7 +2,7 @@ module.exports = {
     name: 'emoji',
     category: 'utils',
     permissions: ['SEND_MESSAGES'],
-    ownerOnly: false,
+    ownerOnly: true,
     usage: 'emoji',
     examples: ['emoji'],
     description: 'Poster vos emojis!',
