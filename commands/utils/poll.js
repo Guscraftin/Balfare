@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 
 module.exports = {
     name: 'poll',
@@ -12,13 +12,13 @@ module.exports = {
         {
             name: 'title',
             description: 'Taper le titre de votre sondage',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true,
         },
         {
             name: 'content',
             description: 'Taper la question de votre sondage',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true,
         }
     ],
@@ -26,7 +26,7 @@ module.exports = {
         const pollTitle = interaction.options.getString('title');
         const pollContent = interaction.options.getString('content');
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(pollTitle)
             .setColor('#00a3b5')
             .setDescription(pollContent)

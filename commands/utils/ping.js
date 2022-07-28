@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: 'ping',
@@ -11,7 +11,7 @@ module.exports = {
     async runInteraction (client, interaction) {
         const tryPong = await interaction.reply({ content: "On essaye de pong... un instant !", fetchReply: true });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('🏓 Pong!')
             .setURL('https://discord.com')
             .setThumbnail(client.user.displayAvatarURL())

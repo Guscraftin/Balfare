@@ -1,3 +1,5 @@
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'dbconfig',
     category: 'admin',
@@ -10,7 +12,7 @@ module.exports = {
         {
             name: 'key',
             description: 'Choisir une clé à modifier ou afficher',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true,
             choices: [
                 {
@@ -26,7 +28,7 @@ module.exports = {
         {
             name: 'value',
             description: 'Choisir la nouvelle valeur pour votre clé',
-            type: 'STRING'
+            type: ApplicationCommandOptionType.String
         }
     ],
     async runInteraction (client, interaction, guildSettings) {

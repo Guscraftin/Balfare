@@ -1,3 +1,5 @@
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'slowmode',
     category: 'moderation',
@@ -10,7 +12,7 @@ module.exports = {
         {
             name: 'value',
             description: 'Choisir la valeur du slowmode',
-            type: 'NUMBER',
+            type: ApplicationCommandOptionType.Number,
             required: true
         }
     ],

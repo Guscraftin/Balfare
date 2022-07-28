@@ -1,4 +1,5 @@
 const ms = require('ms');
+const { ApplicationCommandOptionType } = require('discord.js');
 
 // Can mute everyone by being Owner
 
@@ -14,19 +15,19 @@ module.exports = {
         {
             name: 'target',
             description: "Sélectionner l'utilisateur à mute",
-            type: 'USER',
+            type: ApplicationCommandOptionType.User,
             required: true
         },
         {
             name: 'duration',
             description: 'La durée du mute',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true
         },
         {
             name: 'reason',
             description: 'La raison du mute',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true
         }
     ],

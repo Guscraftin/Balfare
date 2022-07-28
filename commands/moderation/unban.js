@@ -1,3 +1,5 @@
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'unban',
     category: 'moderation',
@@ -10,13 +12,13 @@ module.exports = {
         {
             name: 'target',
             description: "Sélectionner l'utilisateur à déban",
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true
         },
         {
             name: 'reason',
             description: 'La raison du déban',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true
         }
     ],

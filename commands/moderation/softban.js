@@ -1,6 +1,8 @@
 
 // Can banish everyone by being Owner
 
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'softban',
     category: 'moderation',
@@ -13,13 +15,13 @@ module.exports = {
         {
             name: 'target',
             description: "Sélectionner l'utilisateur à ban",
-            type: 'USER',
+            type: ApplicationCommandOptionType.User,
             required: true
         },
         {
             name: 'duration',
             description: 'La durée du ban (en jours)',
-            type: 'NUMBER',
+            type: ApplicationCommandOptionType.Number,
             minValue: 1,
             maxValue: 7,
             required: true
@@ -27,7 +29,7 @@ module.exports = {
         {
             name: 'reason',
             description: 'La raison du ban',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true
         }
     ],

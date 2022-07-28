@@ -1,6 +1,8 @@
 
 // Can banish everyone by being Owner
 
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'ban',
     category: 'moderation',
@@ -13,13 +15,13 @@ module.exports = {
         {
             name: 'target',
             description: "Sélectionner l'utilisateur à ban",
-            type: 'USER',
+            type: ApplicationCommandOptionType.User,
             required: true
         },
         {
             name: 'reason',
             description: 'La raison du ban',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true
         }
     ],

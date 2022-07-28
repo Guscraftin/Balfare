@@ -1,6 +1,8 @@
 
 // Can kick everyone by being Owner
 
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'kick',
     category: 'moderation',
@@ -13,13 +15,13 @@ module.exports = {
         {
             name: 'target',
             description: "Sélectionner l'utilisateur à kick",
-            type: 'USER',
+            type: ApplicationCommandOptionType.User,
             required: true
         },
         {
             name: 'reason',
             description: 'La raison du kick',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: true
         }
     ],

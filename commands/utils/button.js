@@ -1,31 +1,31 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
-const buttons = new MessageActionRow()
+const buttons = new ActionRowBuilder()
     .addComponents(
-        new MessageButton()
+        new ButtonBuilder()
             .setCustomId('primary-button')
             .setLabel('Primary')
-            .setStyle('PRIMARY'),
+            .setStyle(ButtonStyle.Primary),
         
-        new MessageButton()
+        new ButtonBuilder()
             .setCustomId('secondary-button')
             .setLabel('Secondary')
-            .setStyle('SECONDARY'),
+            .setStyle(ButtonStyle.Secondary),
 
-        new MessageButton()
+        new ButtonBuilder()
             .setCustomId('success-button')
             .setLabel('Success')
-            .setStyle('SUCCESS'),
+            .setStyle(ButtonStyle.Success),
 
-        new MessageButton()
+        new ButtonBuilder()
             .setCustomId('danger-button')
             .setLabel('Danger')
-            .setStyle('DANGER'),
+            .setStyle(ButtonStyle.Danger),
 
-        new MessageButton()
+        new ButtonBuilder()
             .setURL('https://discord.com')
             .setLabel('Link')
-            .setStyle('LINK')
+            .setStyle(ButtonStyle.Link)
     )
 
 module.exports = {

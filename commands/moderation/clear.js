@@ -1,3 +1,5 @@
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'clear',
     category: 'moderation',
@@ -10,13 +12,13 @@ module.exports = {
         {
             name: 'message',
             description: 'Le nombre de message à supprimer',
-            type: 'NUMBER',
+            type: ApplicationCommandOptionType.Number,
             required: true
         },
         {
             name: 'target',
             description: "Sélectionner l'utilisateur pour la suppresion des messages",
-            type: 'USER',
+            type: ApplicationCommandOptionType.User,
             required: false
         }
     ],

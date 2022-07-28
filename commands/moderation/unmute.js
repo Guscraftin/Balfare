@@ -1,5 +1,7 @@
 // Can unmute everyone by being Owner
 
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'unmute',
     category: 'moderation',
@@ -12,7 +14,7 @@ module.exports = {
         {
             name: 'target',
             description: "Sélectionner l'utilisateur à démute",
-            type: 'USER',
+            type: ApplicationCommandOptionType.User,
             required: true
         }
     ],

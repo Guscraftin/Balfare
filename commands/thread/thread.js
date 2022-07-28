@@ -1,3 +1,5 @@
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'thread',
     category: 'thread',
@@ -10,28 +12,28 @@ module.exports = {
         {
             name: 'join',
             description: "Joindre un thread",
-            type: 'SUB_COMMAND'
+            type: ApplicationCommandOptionType.Subcommand
         },
         {
             name: 'leave',
             description: "Quitter un thread",
-            type: 'SUB_COMMAND'
+            type: ApplicationCommandOptionType.Subcommand
         },
         {
             name: 'archive',
             description: "Archiver un thread",
-            type: 'SUB_COMMAND'
+            type: ApplicationCommandOptionType.Subcommand
         },
         {
             name: 'unarchive',
             description: "Déarchiver un thread",
-            type: 'SUB_COMMAND'
+            type: ApplicationCommandOptionType.Subcommand
         },
         {
             name: 'delete',
             description: "Supprimer un thread",
-            type: 'SUB_COMMAND',
-            options: [ { name: 'channel', type: 'STRING', description: 'ID du channel', required: true } ]
+            type: ApplicationCommandOptionType.Subcommand,
+            options: [ { name: 'channel', type: ApplicationCommandOptionType.String, description: 'ID du channel', required: true } ]
         }
     ],
     async runInteraction (client, interaction) {

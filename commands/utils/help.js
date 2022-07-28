@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 const { readdirSync } = require('fs');
 const commandFolder = readdirSync('./commands');
 
@@ -18,7 +18,7 @@ module.exports = {
         {
             name: 'command',
             description: 'Taper le nom de votre commande',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             required: false,
         }
     ],
@@ -27,15 +27,15 @@ module.exports = {
         const cmdName = interaction.options.getString('command');
 
         if (!cmdName){
-            const noArgsEmbed = new MessageEmbed()
+            const noArgsEmbed = new EmbedBuilder()
                 .setColor('#6e4aff')
-                .addField('Liste des commandes', `Liste de toutes les catégories disponibles et leurs commandes.\nPour plus d'informations sur une commande, tapez \`${prefix}help <commande>\``)
+                .addFields([{ name: 'Liste des commandes', value: `Liste de toutes les catégories disponibles et leurs commandes.\nPour plus d'informations sur une commande, tapez \`${prefix}help <commande>\`` }])
 
             for (const category of commandFolder){
-                noArgsEmbed.addField(
-                    `• ${category.replace(/(^\w|\s\w)/g, firstLetter => firstLetter.toUpperCase())}`,
-                    `\`${client.commands.filter(cmd => cmd.category == category.toLowerCase()).map(cmd => cmd.name).join('\`, \`')}\``
-                );
+                noArgsEmbed.addFields([{
+                    name: `• ${category.replace(/(^\w|\s\w)/g, firstLetter => firstLetter.toUpperCase())}`,
+                    value: `\`${client.commands.filter(cmd => cmd.category == category.toLowerCase()).map(cmd => cmd.name).join('\`, \`')}\``
+                }]);
             }
 
             return interaction.reply({ embeds : [noArgsEmbed], ephemeral: true });
