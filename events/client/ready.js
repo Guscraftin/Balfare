@@ -10,6 +10,7 @@ module.exports = {
         Logger.client(`- prêt à être utilisé par ${usersCount} utilisateurs sur ${guildsCount.size} serveurs !`);
 
         client.user.setPresence({ activities: [{ name: `mon développement`, type: 'WATCHING' }], status: 'dnd' });
+        // client.user.setPresence({ status: 'online' });
 
 
         /* Deployment of commands */
