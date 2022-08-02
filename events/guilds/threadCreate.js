@@ -8,6 +8,6 @@ module.exports = {
 
         if (thread.type === ChannelType.GuildPublicThread || thread.type === ChannelType.GuildPrivateThread) thread.join();
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
-        logChannel.send(`Création d'un thread: ${thread.name} !`);
+        logChannel.send(`Création d'un thread : \`${thread.name}\` !`);
     }
 };
