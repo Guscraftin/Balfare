@@ -9,17 +9,17 @@ module.exports = {
 
         Logger.client(`- prêt à être utilisé par ${usersCount} utilisateurs sur ${guildsCount.size} serveurs !`);
 
-        // client.user.setPresence({ activities: [{ name: `mon développement`, type: 'WATCHING' }], status: 'dnd' });
-        client.user.setPresence({ status: 'online' });
+        client.user.setPresence({ activities: [{ name: `mon développement`, type: 'WATCHING' }], status: 'dnd' });
+        // client.user.setPresence({ status: 'online' });
 
 
         /* Deployment of commands */
 
         const devGuild = await client.guilds.cache.get('746002648506826793');
-        // devGuild.commands.set(client.commands.map(cmd => cmd));
+        devGuild.commands.set(client.commands.map(cmd => cmd));
         // devGuild.commands.set([]); // Remove all slash commands from a server
         
-        client.application.commands.set(client.commands.map(cmd => cmd));
+        // client.application.commands.set(client.commands.map(cmd => cmd));
         // client.application.commands.set([]); // Delete all global slash commands
     }
 };
