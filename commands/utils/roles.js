@@ -1,8 +1,8 @@
-const { MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
 
-const selectMenu = new MessageActionRow()
+const selectMenu = new ActionRowBuilder()
     .addComponents(
-        new MessageSelectMenu()
+        new SelectMenuBuilder()
             .setCustomId('roles-menu')
             .setPlaceholder('Choisir un rôle dans la liste')
             .setMinValues(1)
@@ -34,9 +34,6 @@ module.exports = {
     usage: 'roles',
     examples: ['roles'],
     description: "Permet d'afficher le menu pour choisir des rôles",
-    async run (client, message, args) {
-        await message.channel.send({ content: 'Choisir un rôle', components: [selectMenu] });
-    },
     async runInteraction (client, interaction) {
         await interaction.reply({ content: 'Choisir un rôle', components: [selectMenu] });
     }

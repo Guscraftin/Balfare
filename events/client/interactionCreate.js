@@ -1,4 +1,5 @@
-const ownerId = '265785336175656970';
+const ownerId = process.env.OWNER_ID;
+const { InteractionType } = require('discord.js');
 
 module.exports = {
     name: 'interactionCreate',
@@ -12,12 +13,12 @@ module.exports = {
             return interaction.reply('Le bot a mis à jour la base de données pour votre serveur, merci de retaper la commande !');
         }
 
-        if (interaction.isCommand() || interaction.isContextMenu()){
+        if (interaction.type === InteractionType.ApplicationCommand || interaction.isContextMenu()){
             const cmd = client.commands.get(interaction.commandName);
             if (!cmd) return interaction.reply("Cette commande n'existe pas !");
 
             if (cmd.ownerOnly) {
-                if (interaction.user.id != ownerId) return MessageChannel.reply("La seule personne pouvant taper cette commande est l'owner du bot !");
+                if (interaction.user.id != ownerId) return interaction.reply("La seule personne pouvant taper cette commande est l'owner du bot !");
             }
 
             if (!interaction.member.permissions.has([cmd.permissions])) return interaction.reply({ content: `Vous n'avez pas la/les permission(s) requise(s) (\`${cmd.permissions.join(', ')}\`) pour taper cette commande !`, ephemeral: true });

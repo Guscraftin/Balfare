@@ -8,12 +8,12 @@ module.exports = {
     usage: 'update',
     examples: ['update'],
     description: 'Mettre à jour les nouvelles données !',
-    async run (client, message, args) {
-        await Guild.updateMany({}, { "$set": { "testChannel" : "749268027857567874" }, upsert: true });
-        message.reply("Nouvelles données ajoutées !");
-    },
     async runInteraction (client, interaction) {
-        await Guild.updateMany({}, { "$set": { "testChannel" : "749268027857567874" }, upsert: true });
+        // Add a new field
+        // await Guild.updateMany({}, { "$set": { "testChannel" : "749268027857567874" }, upsert: true });
+
+        // Remove a field
+        // await Guild.updateMany({}, { $unset: { testChannel: "" } });
         interaction.reply("Nouvelles données ajoutées !");
     }
 };

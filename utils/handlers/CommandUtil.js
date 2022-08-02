@@ -2,6 +2,7 @@ const { promisify } = require('util');
 const { glob } = require('glob');
 const pGlob = promisify(glob);
 const Logger = require('../Logger');
+const { ApplicationCommandType } = require('discord.js');
 
 module.exports = async client => {
     (await pGlob(`${process.cwd()}/commands/*/*.js`)).map(async (cmdFile) => {
@@ -9,7 +10,7 @@ module.exports = async client => {
         
         if (!cmd.name) return Logger.warn(`Commande non chargée : ajouter un nom à votre commande ↓\nFichier -> ${cmdFile}`);
         
-        if (!cmd.description && cmd.type != 'USER') return Logger.warn(`Commande non chargée : ajouter une description à votre commande ↓\nFichier -> ${cmdFile}`);
+        if (!cmd.description && cmd.type != ApplicationCommandType.User) return Logger.warn(`Commande non chargée : ajouter une description à votre commande ↓\nFichier -> ${cmdFile}`);
 
         if (!cmd.category) return Logger.warn(`Commande non chargée : ajouter une catégorie à votre commande ↓\nFichier -> ${cmdFile}`);
 

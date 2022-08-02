@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: 'guildMemberRemove',
@@ -16,7 +16,7 @@ module.exports = {
 
         if (target.id === member.id) isMemberKick = true;
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setAuthor({ name: `${member.user.tag} (${member.id})`, iconURL: member.user.displayAvatarURL() })
             .setColor('#dc143c')
             .setDescription(`• Nom d'utilisateur : ${member.displayName} - \`${member.user.tag}\` (${member.id})

@@ -1,3 +1,5 @@
+const { ApplicationCommandOptionType } = require('discord.js');
+
 module.exports = {
     name: 'slowmode',
     category: 'moderation',
@@ -6,23 +8,11 @@ module.exports = {
     usage: 'slowmode [amount_in_second]',
     examples: ['slowmode 15', 'slowmode 0'],
     description: 'Ajouter un ratelimit (slowmode) sur le salon.',
-    async run (client, message, args) {
-        const value = args[0];
-        if (!args[0] || isNaN(value)) return message.reply("Merci d'entrer un `NOMBRE` pour indiquer la durée du slowmode !");
-        
-        if (value == 0) {
-            await message.channel.setRateLimitPerUser(0);
-            return message.reply({ content: `Le slowmode est désactivé !` });
-        } else {
-            await message.channel.setRateLimitPerUser(value);
-            return message.reply({ content: `Le slowmode est activé -> \`${value}\` !` });
-        }
-    },
     options: [
         {
             name: 'value',
             description: 'Choisir la valeur du slowmode',
-            type: 'NUMBER',
+            type: ApplicationCommandOptionType.Number,
             required: true
         }
     ],

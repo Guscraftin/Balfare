@@ -1,21 +1,21 @@
-const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
-const buttons = new MessageActionRow()
+const buttons = new ActionRowBuilder()
     .addComponents(
-        new MessageButton()
+        new ButtonBuilder()
             .setCustomId('accept-button')
             .setLabel('Accepter')
-            .setStyle('SUCCESS'),
+            .setStyle(ButtonStyle.Success),
 
-        new MessageButton()
+        new ButtonBuilder()
             .setCustomId('refuse-button')
             .setLabel('Refuser')
-            .setStyle('DANGER')
+            .setStyle(ButtonStyle.Danger)
     )
 
-const welcomeEmbed = new MessageEmbed()
-        .setTitle('Chartes du serveur')
-        .setDescription('Ne pas spam...')
+const welcomeEmbed = new EmbedBuilder()
+        .setTitle('Règlement du serveur')
+        .setDescription('Respecter les chartes de discord (accessible en bas de leur site)')
         .setFooter({ text: 'Bienvenue sur le serveur' })
         .setTimestamp()
 
@@ -27,9 +27,6 @@ module.exports = {
     usage: 'welcome',
     examples: ['welcome'],
     description: "Permet d'envoyer l'embed des règles",
-    async run (client, message, args) {
-        await message.channel.send({ embeds: [welcomeEmbed], components: [buttons] });
-    },
     async runInteraction (client, interaction) {
         await interaction.reply({ embeds: [welcomeEmbed], components: [buttons] });
     }
