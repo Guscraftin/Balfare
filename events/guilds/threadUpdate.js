@@ -1,23 +1,94 @@
+const { ChannelType, EmbedBuilder } = require('discord.js');
+
 module.exports = {
     name: 'threadUpdate',
     once: false,
     async execute(client, oldThread, newThread){
         const fetchGuild = await client.getGuild(newThread.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
-
-        if (oldThread.archived && !newThread.archived) newThread.join();
         
-        if (oldThread.name != newThread.name) logChannel.send(`Modification du nom d'un thread: \`${oldThread.name}\` -> \`${newThread.name}\` !\nDans le salon ${newThread.parent} avec le thread <#${newThread.id}>`);
 
-        if (!oldThread.locked && newThread.locked) logChannel.send(`Verouillage du thread \`${newThread.name}\` par le modérateur \`???\` !\nDans le salon : ${newThread.parent} avec le thread <#${newThread.id}>`);
+        const embedModif = new EmbedBuilder()
+            .setTitle(`Modification d'un thread`)
+            .setColor('#009ECA')
+            .setDescription(`Le thread ${oldThread.type === ChannelType.GuildPublicThread ? `public` : `privé`} <#${oldThread.id}> (\`${oldThread.name}\`) a été modifié dans le salon ${newThread.parent} par un modérateur !
+            ${oldThread.name != newThread.name ? `> **Nom :** \`${oldThread.name}\` => \`${newThread.name}\`\n` : `` } ${oldThread.rateLimitPerUser != newThread.rateLimitPerUser ? `> **Mode lent :** \`${resultRateLimit(oldThread)}\` => \`${resultRateLimit(newThread)}\`\n` : ``} ${oldThread.autoArchiveDuration != newThread.autoArchiveDuration ? `> **Archivage après une période d'inactivité :** \`${resultAutoArchive(oldThread)}\` => \`${resultAutoArchive(newThread)}\`\n` : ``} ${!oldThread.locked && newThread.locked ? `> **Verouillage :** \`Désactivé\` => \`Activé\`` : ``} ${oldThread.locked && !newThread.locked ? `> **Verouillage :** \`Activé\` => \`Désactivé\`` : ``}
+            `)
+            .setTimestamp()
+            .setFooter({ text: newThread.guild.name, iconURL: newThread.guild.iconURL() })
 
-        if (oldThread.locked && !newThread.locked) logChannel.send(`Déverouillage du thread \`${newThread.name}\` par le modérateur \`???\` !\nDans le salon : ${newThread.parent} avec le thread <#${newThread.id}>`);
 
-        if (oldThread.autoArchiveDuration != newThread.autoArchiveDuration) logChannel.send(`Modification du verouillage automatique du thread \`${newThread.name}\` par le modérateur \`???\` : \`${oldThread.autoArchiveDuration/60}h\` -> \`${newThread.autoArchiveDuration/60}h\` !\nDans le salon : ${newThread.parent} avec le thread <#${newThread.id}>`);
+        const embedArchiv = new EmbedBuilder()
+            .setTitle(`Thread archivé`)
+            .setColor('#009ECA')
+            .setDescription(`Le thread ${oldThread.type === ChannelType.GuildPublicThread ? `public` : `privé`} <#${oldThread.id}> (\`${oldThread.name}\`) a été **archivé** dans le salon ${newThread.parent} ${!oldThread.locked && newThread.locked ? `par un __modérateur__` : ``} !
+            `)
+            .setTimestamp()
+            .setFooter({ text: newThread.guild.name, iconURL: newThread.guild.iconURL() })
 
-        if (oldThread.rateLimitPerUser != newThread.rateLimitPerUser) logChannel.send(`Modification du slownmode du thread \`${newThread.name}\` par le modérateur \`???\` : \`${oldThread.rateLimitPerUser}s\` -> \`${newThread.rateLimitPerUser}s\` !\nDans le salon : ${newThread.parent} avec le thread <#${newThread.id}>`);
+        const embedDeArchiv = new EmbedBuilder()
+            .setTitle(`Thread déarchivé`)
+            .setColor('#009ECA')
+            .setDescription(`Le thread ${oldThread.type === ChannelType.GuildPublicThread ? `public` : `privé`} <#${oldThread.id}> (\`${oldThread.name}\`) a été **déarchivé** dans le salon ${newThread.parent} !
+            *Tout le monde peut désarchiver ce fil de discussion.*
+            `)
+            .setTimestamp()
+            .setFooter({ text: newThread.guild.name, iconURL: newThread.guild.iconURL() })
 
-        
-        // Delete thread
+
+        if (!oldThread.archived && newThread.archived) logChannel.send({ embeds: [embedArchiv] });
+        else if (oldThread.archived && !newThread.archived) {
+            newThread.join()
+            logChannel.send({ embeds: [embedDeArchiv] });
+        } else {
+            logChannel.send({ embeds: [embedModif] });
+        }
+
+
+        // For EmbedModif
+        function resultAutoArchive(threadRef) {
+            if (threadRef.autoArchiveDuration < 60) {
+                return `${threadRef.autoArchiveDuration} minutes`;
+            }
+            else if (threadRef.autoArchiveDuration === 60) {
+                return `1 heure`;
+            }
+            else if (threadRef.autoArchiveDuration <= 1440) {
+                return `${threadRef.autoArchiveDuration/60} heures`;
+            }
+            else if (threadRef.autoArchiveDuration < 10080) {
+                return `${threadRef.autoArchiveDuration/1440} jours`;
+            }
+            else if (threadRef.autoArchiveDuration === 10080) {
+                return `1 semaine`;
+            }
+            else {
+                return `${threadRef.autoArchiveDuration/10080} semaines`;
+            }
+        } 
+
+        function resultRateLimit(threadRef) {
+            if (threadRef.rateLimitPerUser === 0) {
+                return `Désactivé`;
+            }
+            else if (threadRef.rateLimitPerUser < 60) {
+                return `${threadRef.rateLimitPerUser} secondes`;
+            }
+            else if (threadRef.rateLimitPerUser === 60) {
+                return `1 minute`;
+            }
+            else if (threadRef.rateLimitPerUser < 3600) {
+                return `${threadRef.rateLimitPerUser/60} minutes`;
+            }
+            else if (threadRef.rateLimitPerUser === 3600) {
+                return `1 heure`;
+            }
+            else if (threadRef.rateLimitPerUser < 86400) {
+                return `${threadRef.rateLimitPerUser/3600} heures`;
+            }
+            else {
+                return `${threadRef.rateLimitPerUser/86400} jours`;
+            }
+        }
     }
 };

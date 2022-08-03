@@ -1,13 +1,24 @@
-const { ChannelType } = require('discord.js');
+const { ChannelType, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: 'threadCreate',
     once: false,
     async execute(client, thread){
         const fetchGuild = await client.getGuild(thread.guild);
+        const ownerThread = await thread.members.fetch(thread.ownerId);
 
-        if (thread.type === ChannelType.GuildPublicThread || thread.type === ChannelType.GuildPrivateThread) thread.join();
-        const logChannel = client.channels.cache.get(fetchGuild.logChannel);
-        logChannel.send(`Création d'un thread : \`${thread.name}\` !`);
+        if (thread.type === ChannelType.GuildPublicThread || thread.type === ChannelType.GuildPrivateThread) {
+            thread.join();
+
+            const embed = new EmbedBuilder()
+                .setAuthor({ name: `Création d'un thread ${thread.type === ChannelType.GuildPublicThread ? `public` : `privé`} - ${ownerThread.user.tag}`, iconURL: ownerThread.user.displayAvatarURL() })
+                .setColor('#009ECA')
+                .setDescription(`Le thread ${thread.type === ChannelType.GuildPublicThread ? `public` : `privé`} <#${thread.id}> (\`${thread.name}\`) a été **créé** dans le salon ${thread.parent} par <@${thread.ownerId}>.`)
+                .setTimestamp()
+                .setFooter({ text: thread.guild.name, iconURL: thread.guild.iconURL() })
+
+            const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+            logChannel.send({ embeds: [embed] });
+        }
     }
 };
