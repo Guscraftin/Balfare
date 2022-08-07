@@ -29,7 +29,5 @@ module.exports = {
                     return ``;
             }
         }
-
-        // Ajouter le nombre de webhooks actuel dans le salon (pour détecter quand suppr)
     }
 };
