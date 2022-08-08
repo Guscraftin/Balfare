@@ -1,4 +1,6 @@
-const { ChannelType, EmbedBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
+
+// Nombre de webhook dans le salon (avec promise)
 
 module.exports = {
     name: 'webhookUpdate',
