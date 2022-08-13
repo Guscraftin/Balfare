@@ -5,6 +5,7 @@ module.exports = {
     once: false,
     async execute(client, thread){
         const fetchGuild = await client.getGuild(thread.guild);
+        const logChannel = client.channels.cache.get(fetchGuild.logChannel);
 
         const embed = new EmbedBuilder()
             .setTitle(`Suppression d'un thread ${thread.type === ChannelType.GuildPublicThread ? 'public' : 'privé'}`)
@@ -13,7 +14,6 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: thread.guild.name, iconURL: thread.guild.iconURL() })
 
-        const logChannel = client.channels.cache.get(fetchGuild.logChannel);
         logChannel.send({ embeds: [embed] });
     }
 };

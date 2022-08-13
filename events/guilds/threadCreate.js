@@ -5,7 +5,9 @@ module.exports = {
     once: false,
     async execute(client, thread){
         const fetchGuild = await client.getGuild(thread.guild);
+        const logChannel = client.channels.cache.get(fetchGuild.logChannel);
         const ownerThread = await thread.members.fetch(thread.ownerId);
+        
 
         if (thread.type === ChannelType.GuildPublicThread || thread.type === ChannelType.GuildPrivateThread) {
             thread.join();
@@ -17,7 +19,6 @@ module.exports = {
                 .setTimestamp()
                 .setFooter({ text: thread.guild.name, iconURL: thread.guild.iconURL() })
 
-            const logChannel = client.channels.cache.get(fetchGuild.logChannel);
             logChannel.send({ embeds: [embed] });
         }
     }
