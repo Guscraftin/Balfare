@@ -12,7 +12,7 @@ module.exports = {
             .setColor('#009ECA')
             .setDescription(`**Le sticker \`${sticker.name}\` a été supprimé.**
             ${sticker.description !== '' ? `> **Emoji similaire :** :${sticker.tags}:` : `` }
-            ${sticker.description !== '' ? `>>> **Description :** ${sticker.description}` : `` }
+            ${sticker.description !== '' ? `>>> **Description :** \`\`\`${sticker.description}\`\`\`` : `` }
             `)
             .setImage(sticker.url)
             .setTimestamp()

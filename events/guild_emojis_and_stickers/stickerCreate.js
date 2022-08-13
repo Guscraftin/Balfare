@@ -11,8 +11,8 @@ module.exports = {
             .setTitle(`Création d'un sticker`)
             .setColor('#009ECA')
             .setDescription(`**Le sticker \`${sticker.name}\` a été créé.**
-            ${sticker.description !== '' ? `> **Emoji similaire :** :${sticker.tags}:` : `` }
-            ${sticker.description !== '' ? `>>> **Description :** ${sticker.description}` : `` }
+            > **Emoji similaire :** :${sticker.tags}:
+            ${sticker.description !== '' ? `>>> **Description :** \`\`\`${sticker.description}\`\`\`` : `` }
             `)
             .setImage(sticker.url)
             .setTimestamp()

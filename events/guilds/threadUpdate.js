@@ -11,7 +11,7 @@ module.exports = {
         const embedModif = new EmbedBuilder()
             .setTitle(`Modification d'un thread`)
             .setColor('#009ECA')
-            .setDescription(`Le thread ${oldThread.type === ChannelType.GuildPublicThread ? `public` : `privé`} <#${oldThread.id}> (\`${oldThread.name}\`) a été modifié dans le salon ${newThread.parent} par un modérateur !
+            .setDescription(`Le thread ${oldThread.type === ChannelType.GuildPublicThread ? `public` : `privé`} <#${oldThread.id}> (\`${oldThread.name}\`) **a été modifié** dans le salon ${newThread.parent} par un modérateur !
             ${oldThread.name != newThread.name ? `> **Nom :** \`${oldThread.name}\` => \`${newThread.name}\`\n` : `` } ${oldThread.rateLimitPerUser != newThread.rateLimitPerUser ? `> **Mode lent :** \`${resultRateLimit(oldThread)}\` => \`${resultRateLimit(newThread)}\`\n` : ``} ${oldThread.autoArchiveDuration != newThread.autoArchiveDuration ? `> **Archivage après une période d'inactivité :** \`${resultAutoArchive(oldThread)}\` => \`${resultAutoArchive(newThread)}\`\n` : ``} ${!oldThread.locked && newThread.locked ? `> **Verouillage :** \`Désactivé\` => \`Activé\`` : ``} ${oldThread.locked && !newThread.locked ? `> **Verouillage :** \`Activé\` => \`Désactivé\`` : ``}
             `)
             .setTimestamp()
