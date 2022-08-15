@@ -39,7 +39,7 @@ module.exports = {
         }
 
         function setMemberPermissions() {
-            const field4 = `${permissions.has(PermissionsBitField.Flags.CreateInstantInvite) ? `✅ ▸ Créer une invitation\n` : ``} ${permissions.has(PermissionsBitField.Flags.ChangeNickname) ? `✅ ▸ Changer le speudo\n` : ``} ${permissions.has(PermissionsBitField.Flags.ManageNicknames) ? `✅ ▸ Gérer les pseudos\n` : ``} ${permissions.has(PermissionsBitField.Flags.KickMembers) ? `✅ ▸ Expulser des membres\n` : ``} ${permissions.has(PermissionsBitField.Flags.BanMembers) ? `✅ ▸ Bannir des membres\n` : ``} ${permissions.has(PermissionsBitField.Flags.MuteMembers) ? `✅ ▸ Exclure temporairement des membres\n` : ``}`
+            const field4 = `${permissions.has(PermissionsBitField.Flags.CreateInstantInvite) ? `✅ ▸ Créer une invitation\n` : ``} ${permissions.has(PermissionsBitField.Flags.ChangeNickname) ? `✅ ▸ Changer le speudo\n` : ``} ${permissions.has(PermissionsBitField.Flags.ManageNicknames) ? `✅ ▸ Gérer les pseudos\n` : ``} ${permissions.has(PermissionsBitField.Flags.KickMembers) ? `✅ ▸ Expulser des membres\n` : ``} ${permissions.has(PermissionsBitField.Flags.BanMembers) ? `✅ ▸ Bannir des membres\n` : ``} ${permissions.has(PermissionsBitField.Flags.ModerateMembers) ? `✅ ▸ Exclure temporairement des membres\n` : ``}`
 
             return field4 === '     ' ? `❌ ▸ Aucune permission` : `${field4}`;
         }
@@ -51,7 +51,7 @@ module.exports = {
         }
 
         function setVocalPermissions() {
-            const field6 = `${permissions.has(PermissionsBitField.Flags.Connect) ? `✅ ▸ Se connecter\n` : ``} ${permissions.has(PermissionsBitField.Flags.Speak) ? `✅ ▸ Parler\n` : ``} ${permissions.has(PermissionsBitField.Flags.Stream) ? `✅ ▸ Vidéos\n` : ``} ${permissions.has(PermissionsBitField.Flags.UseEmbeddedActivities) ? `✅ ▸ Utiliser les activités\n` : ``} ${permissions.has(PermissionsBitField.Flags.UseVAD) ? `✅ ▸ Utiliser la détection de la voix\n` : ``} ${permissions.has(PermissionsBitField.Flags.PrioritySpeaker) ? `✅ ▸ Voix prioritaire\n` : ``} ${permissions.has(PermissionsBitField.Flags.ModerateMembers) ? `✅ ▸ Rendre les membres muets\n` : ``} ${permissions.has(PermissionsBitField.Flags.DeafenMembers) ? `✅ ▸ Mettre en sourdine des membres\n` : ``} ${permissions.has(PermissionsBitField.Flags.MoveMembers) ? `✅ ▸ Déplacer des membres\n` : ``}`
+            const field6 = `${permissions.has(PermissionsBitField.Flags.Connect) ? `✅ ▸ Se connecter\n` : ``} ${permissions.has(PermissionsBitField.Flags.Speak) ? `✅ ▸ Parler\n` : ``} ${permissions.has(PermissionsBitField.Flags.Stream) ? `✅ ▸ Vidéos\n` : ``} ${permissions.has(PermissionsBitField.Flags.UseEmbeddedActivities) ? `✅ ▸ Utiliser les activités\n` : ``} ${permissions.has(PermissionsBitField.Flags.UseVAD) ? `✅ ▸ Utiliser la détection de la voix\n` : ``} ${permissions.has(PermissionsBitField.Flags.PrioritySpeaker) ? `✅ ▸ Voix prioritaire\n` : ``} ${permissions.has(PermissionsBitField.Flags.MuteMembers) ? `✅ ▸ Rendre les membres muets\n` : ``} ${permissions.has(PermissionsBitField.Flags.DeafenMembers) ? `✅ ▸ Mettre en sourdine des membres\n` : ``} ${permissions.has(PermissionsBitField.Flags.MoveMembers) ? `✅ ▸ Déplacer des membres\n` : ``}`
 
             return field6 === '        ' ? `❌ ▸ Aucune permission` : `${field6}`;
         }
