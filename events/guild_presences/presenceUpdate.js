@@ -18,6 +18,8 @@
 //         if (newPresence.user.bot) return;
 //         logChannel.send({ embeds: [embed] });
 
+
+// Ajouter ces paramètres et voir si vraiment utiles en logs
 //         console.log(newPresence.activities.length);
 //         console.log(newPresence.activities[0].details);
 //         console.log(newPresence.activities[0].emoji.name);
