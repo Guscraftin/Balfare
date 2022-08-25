@@ -29,6 +29,9 @@ module.exports = {
             case '🟧':
                 member.send('Salut !');
                 break;
+            case '🟨':
+                message.reactions.resolve(messageReaction.remove());
+                break;
         }
     }
 };
