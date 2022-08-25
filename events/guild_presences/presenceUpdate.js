@@ -1,5 +1,7 @@
 // const { EmbedBuilder } = require('discord.js');
 
+/* Pour quand les gens joue ou surtout quand change de phrase pour stut custom */
+
 // module.exports = {
 //     name: 'presenceUpdate',
 //     once: false,
