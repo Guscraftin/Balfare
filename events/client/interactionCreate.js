@@ -1,11 +1,23 @@
 const ownerId = process.env.OWNER_ID;
-const { InteractionType } = require('discord.js');
+const { InteractionType, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: 'interactionCreate',
     once: false,
     async execute(client, interaction){
         let guildSettings = await client.getGuild(interaction.guild);
+        const logChannel = client.channels.cache.get(guildSettings.logChannel);
+
+        const embed = new EmbedBuilder()
+            .setAuthor({ name: `${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL() })
+            .setColor('#009ECA')
+            .setDescription(`**La commande \`${interaction.commandName}\` du bot ${client.user} a été utilisé par ${interaction.user} dans ${interaction.channel}.**
+            `)
+            .setTimestamp()
+            .setFooter({ text: interaction.guild.name, iconURL: interaction.guild.iconURL() })
+
+        logChannel.send({ embeds: [embed] });
+
 
         if (!guildSettings) {
             await client.createGuild(interaction.guild);
