@@ -3,6 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 // Ajouter Plus d'informations sur le message ?
 // Notamment qui l'a modif (si possible) + Attention au null au démarrage du bot pour l'ancien message
 // **Attention** à la longueur maximum de message (afficher que le début) car renvoie des erreurs
+// Attention au message contenant des embed ou fichier / lien car n'apparait pas
 
 module.exports = {
     name: 'messageUpdate',
