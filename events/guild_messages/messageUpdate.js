@@ -13,19 +13,20 @@ module.exports = {
         const oldContentMessage = oldMessage.content;
         const newContentMessage = newMessage.content;
 
-        const embed = new EmbedBuilder()
-            .setAuthor({ name: newMessage.author.tag, iconURL: newMessage.author.displayAvatarURL() })
-            .setColor('#009ECA')
-            .setDescription(`**Message envoyé par <@${newMessage.author.id}> modifié dans ${newMessage.channel}.**. [Aller au message.](${newMessage.url})
-            `)
-            .addFields([
-                {name: `\`🔅\` - Ancien - \`🔅\``, value: `\`\`\`${oldContentMessage}\`\`\``},
-                {name: `\`🔅\` - Nouveau - \`🔅\``, value: `\`\`\`${newContentMessage}\`\`\``}
-            ])
-            .setTimestamp()
-            .setFooter({ text: newMessage.guild.name, iconURL: newMessage.guild.iconURL() })
+        if ((oldContentMessage === null || oldContentMessage.length <= 1024) && newContentMessage.length <= 1024) {
+            const embed = new EmbedBuilder()
+                .setAuthor({ name: newMessage.author.tag, iconURL: newMessage.author.displayAvatarURL() })
+                .setColor('#009ECA')
+                .setDescription(`**Message envoyé par <@${newMessage.author.id}> modifié dans ${newMessage.channel}.**. [Aller au message.](${newMessage.url})
+                `)
+                .addFields([
+                    {name: `\`🔅\` - Ancien - \`🔅\``, value: `\`\`\`${oldContentMessage}\`\`\``},
+                    {name: `\`🔅\` - Nouveau - \`🔅\``, value: `\`\`\`${newContentMessage}\`\`\``}
+                ])
+                .setTimestamp()
+                .setFooter({ text: newMessage.guild.name, iconURL: newMessage.guild.iconURL() })
 
-    
-        if ((oldContentMessage === null || oldContentMessage.length <= 1024) && newContentMessage.length <= 1024) logChannel.send({ embeds: [embed] });
+            logChannel.send({ embeds: [embed] });
+        }
     }
 };
