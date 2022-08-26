@@ -24,7 +24,7 @@ module.exports = {
     ],
     async runInteraction (client, interaction) {
         const amountToDelete = interaction.options.getNumber('message');
-        if (isNaN(amountToDelete) ||amountToDelete > 100 || amountToDelete < 2) return interaction.reply("Le `NOMBRE` doit être inférieur et supérieur à 1 !")
+        if (isNaN(amountToDelete) || amountToDelete > 100 || amountToDelete < 2) return interaction.reply("Le `NOMBRE` doit être entre 2 et 100 inclus !")
         const target = interaction.options.getMember('target');
 
         const messagesToDelete = await interaction.channel.messages.fetch();
