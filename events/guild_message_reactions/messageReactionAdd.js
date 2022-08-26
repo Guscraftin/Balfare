@@ -1,7 +1,25 @@
+const { EmbedBuilder } = require('discord.js');
+
 module.exports = {
     name: 'messageReactionAdd',
     once: false,
     async execute(client, messageReaction, user){
+        const fetchGuild = await client.getGuild(messageReaction.message.guild);
+        const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+
+        const embed = new EmbedBuilder()
+            .setAuthor({ name: user.username, iconURL: user.displayAvatarURL() })
+            .setColor('#009ECA')
+            .setDescription(`**<@${user.id}> a ajouté sa réaction \`${messageReaction.emoji.name}\` [à ce message](${messageReaction.message.url}).**
+            `)
+            .setTimestamp()
+            .setFooter({ text: messageReaction.message.guild.name, iconURL: messageReaction.message.guild.iconURL() })
+
+        logChannel.send({ embeds: [embed] });
+
+
+
+
         const message = messageReaction.message;
         const emojiName = messageReaction.emoji.name;
         const member = message.guild.members.cache.get(user.id);
