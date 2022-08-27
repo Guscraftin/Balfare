@@ -6,9 +6,11 @@ module.exports = {
     async execute(client, member){
         const fetchGuild = await client.getGuild(member.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel === undefined) return;
+
         const fetchKickLog = await member.guild.fetchAuditLogs({
             limit: 1,
-            type: 'MEMBER_KICK'
+            type: 20
         });
 
         const kickLog = fetchKickLog.entries.first();
@@ -29,6 +31,6 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: "L'utilisateur a quitté !" })
 
-            logChannel.send({ embeds: [embed] });
+        logChannel.send({ embeds: [embed] });
     }
 };

@@ -19,4 +19,9 @@ module.exports = client => {
         }
         return guildData.updateOne(settings);
     }
+
+    client.deleteGuild = async guild => {
+        let deletedGuild = await client.getGuild(guild);
+        return deletedGuild.remove({id: guild.id});
+    }
 }

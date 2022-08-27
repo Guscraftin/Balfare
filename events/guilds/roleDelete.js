@@ -6,6 +6,7 @@ module.exports = {
     async execute(client, role){
         const fetchGuild = await client.getGuild(role.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel === undefined) return;
         const permissions = role.permissions;
 
         const embed = new EmbedBuilder()
@@ -29,7 +30,6 @@ module.exports = {
             .setFooter({ text: role.guild.name, iconURL: role.guild.iconURL() })
     
         logChannel.send({ embeds: [embed] });
-
 
         
         function setGeneralsPermissions() {

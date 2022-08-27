@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, oldMember, newMember){
         const fetchGuild = await client.getGuild(newMember.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel === undefined) return;
         const addRoles = listAddRole();
         const removeRoles = listRemoveRole();
 
