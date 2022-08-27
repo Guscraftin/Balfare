@@ -14,6 +14,8 @@ module.exports = {
         const oldContentMessage = oldMessage.content;
         const newContentMessage = newMessage.content;
 
+        if (oldMessage.channelId === logChannel.id) return;
+
         if ((oldContentMessage === null || oldContentMessage.length <= 1024) && newContentMessage.length <= 1024) {
             const embed = new EmbedBuilder()
                 .setAuthor({ name: newMessage.author.tag, iconURL: newMessage.author.displayAvatarURL() })
