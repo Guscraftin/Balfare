@@ -1,6 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
 // A quitter le serveur après combien de temps
+// Désactiver les boutons sous le message de guildCreate
 
 module.exports = {
     name: 'guildDelete',

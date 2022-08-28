@@ -1,6 +1,5 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
-// Invitation en cas de problème
 // Bouton sous log pour kick le bot (si mauvais serveur) => Faire une whitelist ?
 
 module.exports = {
@@ -19,6 +18,21 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: `Id du serveur : ${guild.id}`, iconURL: guild.iconURL() })
     
-        generalLogChannel.send({ embeds: [embed] });
+            const buttons = new ActionRowBuilder()
+                .addComponents(
+                    new ButtonBuilder()
+                        .setCustomId('invitation')
+                        .setEmoji('📨')
+                        .setLabel('Invitation')
+                        .setStyle(ButtonStyle.Secondary),
+
+                    new ButtonBuilder()
+                        .setCustomId('kicker')
+                        .setEmoji('👋')
+                        .setLabel('Quitter')
+                        .setStyle(ButtonStyle.Danger)
+            )
+
+        generalLogChannel.send({ embeds: [embed], components: [buttons] });
     }
 };
