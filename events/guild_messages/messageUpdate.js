@@ -15,6 +15,7 @@ module.exports = {
         const newContentMessage = newMessage.content;
 
         if (oldMessage.channelId === logChannel.id) return;
+        if (oldContentMessage === newContentMessage) return;
 
         if ((oldContentMessage === null || oldContentMessage.length <= 1024) && newContentMessage.length <= 1024) {
             const embed = new EmbedBuilder()
