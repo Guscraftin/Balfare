@@ -9,6 +9,19 @@ module.exports = {
         const fetchGuild = await client.getGuild(newPresence.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
         
+        if (newPresence.user.bot) return;
+        if (oldPresence.status !== newPresence.status) return; // A enlever dans le futur ?
+
+        const embed = new EmbedBuilder()
+            .setAuthor({ name: newPresence.user.tag, iconURL: newPresence.user.displayAvatarURL() })
+            .setColor('#009ECA')
+            .setDescription(`Modification du statut de <@${newPresence.user.id}>.
+            `)
+            .setTimestamp()
+            .setFooter({ text: newPresence.guild.name, iconURL: newPresence.guild.iconURL() })
+    
+        logChannel.send({ embeds: [embed] });
+
         // const embed = new EmbedBuilder()
         //     .setAuthor({ name: newPresence.user.tag, iconURL: newPresence.user.displayAvatarURL() })
         //     .setColor('#009ECA')
@@ -17,7 +30,6 @@ module.exports = {
         //     .setTimestamp()
         //     .setFooter({ text: newPresence.guild.name, iconURL: newPresence.guild.iconURL() })
     
-        // if (newPresence.user.bot) return;
         // logChannel.send({ embeds: [embed] });
 
 
