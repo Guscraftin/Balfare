@@ -14,7 +14,9 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setAuthor({ name: client.user.tag, iconURL: client.user.displayAvatarURL() })
             .setColor('#c40000')
-            .setDescription(`**${client.user} a quitté ce serveur \`${guild.name}\`.**
+            .setDescription(`**${client.user} a quitté le serveur \`${guild.name}\`.**
+            > **Rejoint le :** <t:${parseInt(guild.joinedTimestamp / 1000)}:f> (<t:${parseInt(guild.joinedTimestamp / 1000)}:R>)
+            > **Quitté le :** <t:${parseInt(Date.now() / 1000)}:f> (<t:${parseInt(Date.now() / 1000)}:R>)
             `)
             .setTimestamp()
             .setFooter({ text: `Id du serveur : ${guild.id}`, iconURL: guild.iconURL() })

@@ -13,7 +13,8 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setAuthor({ name: client.user.tag, iconURL: client.user.displayAvatarURL() })
             .setColor('#32c400')
-            .setDescription(`**${client.user} a rejoint ce serveur \`${guild.name}\`.**
+            .setDescription(`**${client.user} a rejoint le serveur \`${guild.name}\`.**
+            > **Rejoint le :** <t:${parseInt(guild.joinedTimestamp / 1000)}:f> (<t:${parseInt(guild.joinedTimestamp / 1000)}:R>)
             `)
             .setTimestamp()
             .setFooter({ text: `Id du serveur : ${guild.id}`, iconURL: guild.iconURL() })

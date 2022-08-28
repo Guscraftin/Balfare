@@ -8,6 +8,6 @@ module.exports = {
         client.guilds.fetch(interaction.message.embeds[0].footer.text.slice(16)).then(function (guild) {
             guild.leave();
         });
-        await interaction.reply({ content: "J'ai quitter le serveur en question !", ephemeral: true});
+        await interaction.reply({ content: "J'ai quitté le serveur en question !", ephemeral: true});
     }
 };
