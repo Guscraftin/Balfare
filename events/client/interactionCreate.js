@@ -16,7 +16,7 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: interaction.guild.name, iconURL: interaction.guild.iconURL() })
 
-        // logChannel.send({ embeds: [embed] });
+        logChannel.send({ embeds: [embed] });
 
 
         if (!guildSettings) {
