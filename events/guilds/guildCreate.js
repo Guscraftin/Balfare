@@ -19,19 +19,19 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: `Id du serveur : ${guild.id}`, iconURL: guild.iconURL() })
     
-            const buttons = new ActionRowBuilder()
-                .addComponents(
-                    new ButtonBuilder()
-                        .setCustomId('invitation')
-                        .setEmoji('📨')
-                        .setLabel('Invitation')
-                        .setStyle(ButtonStyle.Secondary),
+        const buttons = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setCustomId('invitation')
+                    .setEmoji('📨')
+                    .setLabel('Invitation')
+                    .setStyle(ButtonStyle.Secondary),
 
-                    new ButtonBuilder()
-                        .setCustomId('kicker')
-                        .setEmoji('👋')
-                        .setLabel('Quitter')
-                        .setStyle(ButtonStyle.Danger)
+                new ButtonBuilder()
+                    .setCustomId('kicker')
+                    .setEmoji('👋')
+                    .setLabel('Quitter')
+                    .setStyle(ButtonStyle.Danger)
             )
 
         generalLogChannel.send({ embeds: [embed], components: [buttons] });
