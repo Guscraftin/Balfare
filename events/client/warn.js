@@ -1,17 +1,10 @@
-const { EmbedBuilder } = require('discord.js');
-
 module.exports = {
     name: 'warn',
     once: false,
     async execute(client, info){
-        const warnLogChannel = client.channels.cache.get('1014524532515680256');
+        const warnLogChannel = client.channels.cache.get('1014531238092087337');
+        if (warnLogChannel == undefined) return;
 
-        const embed = new EmbedBuilder()
-            .setAuthor({ name: client.user.tag, iconURL: client.user.displayAvatarURL() })
-            .setColor('#32c400')
-            .setDescription(`**Info warn : ** \`${info}\``)
-            .setTimestamp()
-    
-        warnLogChannel.send({ embeds: [embed] });
+        warnLogChannel.send(`**Info warn : ** \`${info}\``);
     }
 };
