@@ -11,7 +11,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setAuthor({ name: `${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL() })
             .setColor('#009ECA')
-            .setDescription(`**La commande \`${interaction.commandName}\` du bot ${client.user} a été utilisé par ${interaction.user} dans ${interaction.channel}.**
+            .setDescription(`**${whatInteraction()}\` du bot ${client.user} a été utilisé par ${interaction.user} dans ${interaction.channel}.** ${ interaction.isButton() || interaction.isSelectMenu() ? `[Aller au message.](${interaction.message.url})` : ``}
             `)
             .setTimestamp()
             .setFooter({ text: interaction.guild.name, iconURL: interaction.guild.iconURL() })
@@ -44,6 +44,12 @@ module.exports = {
             const selectMenu = client.selects.get(interaction.customId);
             if (!selectMenu) return interaction.reply("Ce menu n'existe pas !");
             selectMenu.runInteraction(client, interaction, guildSettings);
+        }
+
+        function whatInteraction() {
+            if (interaction.type === InteractionType.ApplicationCommand || interaction.isContextMenuCommand()) return `La commande \`${interaction.commandName}`;
+            else if (interaction.isButton()) return `Le boutton \`${interaction.customId}`;
+            else if (interaction.isSelectMenu()) return `Le menu déroulant \`${interaction.customId}`;
         }
     }
 };

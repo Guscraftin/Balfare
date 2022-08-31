@@ -1,5 +1,7 @@
 const { ApplicationCommandOptionType } = require('discord.js');
 
+// Suppre le message de confirmation après un certain temps (comme 10 sec)
+
 module.exports = {
     name: 'clear',
     category: 'moderation',
