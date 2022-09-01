@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Utile ?
+// Utile ? (Stats ?)
 
 module.exports = {
     name: 'messageCreate',

@@ -1,6 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
-// Bouton sous log pour kick le bot (si mauvais serveur) => Faire une whitelist ?
+// Faire une whitelist ? (en plus des boutons accessible par l'owner)
 
 module.exports = {
     name: 'guildCreate',
