@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, oldStageInstance, newStageInstance){
         const fetchGuild = await client.getGuild(newStageInstance.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
             .setTitle(`Modification d'une conférence`)

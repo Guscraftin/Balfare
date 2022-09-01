@@ -6,7 +6,7 @@ module.exports = {
     async execute(client, oldThread, newThread){
         const fetchGuild = await client.getGuild(newThread.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
-        
+        if (logChannel == undefined) return;
 
         const embedModif = new EmbedBuilder()
             .setTitle(`Modification d'un thread`)

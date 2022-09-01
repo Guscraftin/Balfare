@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, message){
         // const fetchGuild = await client.getGuild(message.guild);
         // const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        // if (logChannel == undefined) return;
 
         // if (message.channel === logChannel) return;
 

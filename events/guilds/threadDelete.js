@@ -6,6 +6,7 @@ module.exports = {
     async execute(client, thread){
         const fetchGuild = await client.getGuild(thread.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
             .setTitle(`Suppression d'un thread ${thread.type === ChannelType.GuildPublicThread ? 'public' : 'privé'}`)

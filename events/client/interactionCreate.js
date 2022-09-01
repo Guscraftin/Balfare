@@ -7,6 +7,7 @@ module.exports = {
     async execute(client, interaction){
         let guildSettings = await client.getGuild(interaction.guild);
         const logChannel = client.channels.cache.get(guildSettings.logChannel);
+        if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
             .setAuthor({ name: `${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL() })

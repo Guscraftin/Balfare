@@ -6,6 +6,7 @@ module.exports = {
     async execute(client, ban){
         const fetchGuild = await client.getGuild(ban.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
         
         let reason;
         await ban.guild.bans.fetch(ban.user).then(function (ban) {

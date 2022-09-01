@@ -11,6 +11,7 @@ module.exports = {
     async execute(client, oldMessage, newMessage){
         const fetchGuild = await client.getGuild(newMessage.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
         const oldContentMessage = oldMessage.content;
         const newContentMessage = newMessage.content;
 

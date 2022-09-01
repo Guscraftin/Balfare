@@ -6,6 +6,7 @@ module.exports = {
     async execute(client, messageReaction, user){
         const fetchGuild = await client.getGuild(messageReaction.message.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
             .setAuthor({ name: user.username, iconURL: user.displayAvatarURL() })

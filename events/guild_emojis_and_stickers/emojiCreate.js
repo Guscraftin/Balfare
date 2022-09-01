@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, emoji){
         const fetchGuild = await client.getGuild(emoji.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
             .setTitle(`Création d'un emoji`)

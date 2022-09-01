@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, channel){
         const fetchGuild = await client.getGuild(channel.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         let numberWebhooks;
         await channel.fetchWebhooks().then(function (hooks) {

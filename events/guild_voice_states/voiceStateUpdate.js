@@ -9,6 +9,7 @@ module.exports = {
     async execute(client, oldState, newState){
         const fetchGuild = await client.getGuild(newState.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         if (oldState.channel === null) {
             const embedJoin = new EmbedBuilder()

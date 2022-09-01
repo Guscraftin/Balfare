@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, messages, channel){
         const fetchGuild = await client.getGuild(channel.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
             .setTitle('💥 - Suppression en masse de message')

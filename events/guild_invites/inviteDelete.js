@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, invite){
         const fetchGuild = await client.getGuild(invite.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
             .setTitle('Invitation : Suppression')

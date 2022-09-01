@@ -6,6 +6,7 @@ module.exports = {
     async execute(client, sticker){
         const fetchGuild = await client.getGuild(sticker.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
             .setTitle(`Supression d'un sticker`)

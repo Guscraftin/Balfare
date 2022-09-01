@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, oldPresence, newPresence){
         const fetchGuild = await client.getGuild(newPresence.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
         
         // const embed = new EmbedBuilder()
         //     .setAuthor({ name: newPresence.user.tag, iconURL: newPresence.user.displayAvatarURL() })

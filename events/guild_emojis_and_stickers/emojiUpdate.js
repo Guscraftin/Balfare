@@ -6,6 +6,7 @@ module.exports = {
     async execute(client, oldEmoji, newEmoji){
         const fetchGuild = await client.getGuild(newEmoji.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
             .setTitle(`Modification d'un émoji`)

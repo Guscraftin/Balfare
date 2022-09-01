@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, oldChannel, newChannel){
         const fetchGuild = await client.getGuild(newChannel.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
         const oldPermissions = oldChannel.permissions;
         const newPermissions = newChannel.permissions;
         

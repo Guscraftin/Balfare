@@ -8,6 +8,7 @@ module.exports = {
     async execute(client, oldUser, newUser){
         const fetchGuild = await client.getGuild(newUser.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
+        if (logChannel == undefined) return;
 
         // avatar - banner - Flags (badge)
         // Utile tag avec Discriminant + Peusdo ?
