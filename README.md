@@ -4,7 +4,7 @@
     - Finir les logs des salons
 
 
-# Quand transfert sur le vrai bot :
+## Quand transfert sur le vrai bot :
 
--> index.js : Vérifier le token
+-> index.js : Vérifier le token  
 -> ready.js : Vérifier le status + le déploiement des commandes en global
