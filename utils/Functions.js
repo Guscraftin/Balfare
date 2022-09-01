@@ -8,7 +8,7 @@ module.exports = client => {
 
     client.createGuild = async guild => {
         const createGuild = new Guild({ id: guild.id });
-        createGuild.save().then(g => console.log(`Nouveau serveur (${g.id}) !`));
+        createGuild.save()
     };
 
     client.updateGuild = async (guild, settings) => {
