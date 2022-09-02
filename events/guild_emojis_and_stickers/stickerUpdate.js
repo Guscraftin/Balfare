@@ -9,9 +9,9 @@ module.exports = {
         if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
-            .setTitle(`Modification d'un sticker`)
+            .setTitle(`Modification d'un autocollant`)
             .setColor('#009ECA')
-            .setDescription(`**Le sticker \`${newSticker.name}\` a été modifié.**
+            .setDescription(`**L'autocollant \`${newSticker.name}\` a été modifié.**
             ${oldSticker.name !== newSticker.name ? `> **Nom :** \`${oldSticker.name}\` => \`${newSticker.name}\`\n` : `` } ${oldSticker.tags !== newSticker.tags ? `> **Emoji similaire :** :${oldSticker.tags}: => :${newSticker.tags}:\n` : `` } ${oldSticker.description !== newSticker.description ? `>>> **Description :** \`\`\`${oldSticker.description}\`\`\` **=>** \`\`\`${newSticker.description}\`\`\`` : `` }
             `)
             .setImage(newSticker.url)

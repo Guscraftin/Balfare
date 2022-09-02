@@ -9,9 +9,9 @@ module.exports = {
         if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
-            .setTitle(`Création d'un sticker`)
+            .setTitle(`Création d'un autocollant`)
             .setColor('#009ECA')
-            .setDescription(`**Le sticker \`${sticker.name}\` a été créé.**
+            .setDescription(`**L'autocollant \`${sticker.name}\` a été créé par ${sticker.user === null ? `\`un inconnu\`` : `<@${sticker.user.id}>`}.**
             > **Emoji similaire :** :${sticker.tags}:
             ${sticker.description !== '' ? `>>> **Description :** \`\`\`${sticker.description}\`\`\`` : `` }
             `)

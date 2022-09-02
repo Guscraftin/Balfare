@@ -13,7 +13,7 @@ module.exports = {
             .setColor('#009ECA')
             .setDescription(`**L'emoji \`${emoji.name}\` a été supprimé.**
             > **Nom:Id :** \`${emoji.identifier}\`
-            > **Auteur :** ${emoji.author === null ? `\`un inconnu\`` : `<@${emoji.author.id}>`}
+            > **Auteur :** ${emoji.author === null ? `\`inconnu\`` : `<@${emoji.author.id}>`}
             > **Emoji animé :** \`${emoji.animated ? `Oui` : `Non` }\`
             `)
             .setThumbnail(emoji.url)

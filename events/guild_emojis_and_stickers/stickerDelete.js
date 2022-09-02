@@ -9,10 +9,11 @@ module.exports = {
         if (logChannel == undefined) return;
 
         const embed = new EmbedBuilder()
-            .setTitle(`Supression d'un sticker`)
+            .setTitle(`Supression d'un autocollant`)
             .setColor('#009ECA')
-            .setDescription(`**Le sticker \`${sticker.name}\` a été supprimé.**
-            ${sticker.description !== '' ? `> **Emoji similaire :** :${sticker.tags}:` : `` }
+            .setDescription(`**L'autocollant \`${sticker.name}\` a été supprimé.**
+            > **Emoji similaire :** :${sticker.tags}:
+            > **Auteur :** ${sticker.user === null ? `\`inconnu\`` : `<@${sticker.user.id}>`}
             ${sticker.description !== '' ? `>>> **Description :** \`\`\`${sticker.description}\`\`\`` : `` }
             `)
             .setImage(sticker.url)
