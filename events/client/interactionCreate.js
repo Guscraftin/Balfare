@@ -7,18 +7,6 @@ module.exports = {
     async execute(client, interaction){
         let guildSettings = await client.getGuild(interaction.guild);
         const logChannel = client.channels.cache.get(guildSettings.logChannel);
-        if (logChannel == undefined) return;
-
-        const embed = new EmbedBuilder()
-            .setAuthor({ name: `${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL() })
-            .setColor('#009ECA')
-            .setDescription(`**${whatInteraction()}\` du bot ${client.user} a été utilisé par ${interaction.user} dans ${interaction.channel}.** ${ interaction.isButton() || interaction.isSelectMenu() ? `[Aller au message.](${interaction.message.url})` : ``}
-            `)
-            .setTimestamp()
-            .setFooter({ text: interaction.guild.name, iconURL: interaction.guild.iconURL() })
-
-        logChannel.send({ embeds: [embed] });
-
 
         if (!guildSettings) {
             await client.createGuild(interaction.guild);
@@ -46,6 +34,20 @@ module.exports = {
             if (!selectMenu) return interaction.reply("Ce menu n'existe pas !");
             selectMenu.runInteraction(client, interaction, guildSettings);
         }
+
+
+        if (logChannel == undefined) return;
+
+        const embed = new EmbedBuilder()
+            .setAuthor({ name: `${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL() })
+            .setColor('#009ECA')
+            .setDescription(`**${whatInteraction()}\` du bot ${client.user} a été utilisé par ${interaction.user} dans ${interaction.channel}.** ${ interaction.isButton() || interaction.isSelectMenu() ? `[Aller au message.](${interaction.message.url})` : ``}
+            `)
+            .setTimestamp()
+            .setFooter({ text: interaction.guild.name, iconURL: interaction.guild.iconURL() })
+
+        logChannel.send({ embeds: [embed] });
+
 
         function whatInteraction() {
             if (interaction.type === InteractionType.ApplicationCommand || interaction.isContextMenuCommand()) return `La commande \`${interaction.commandName}`;
