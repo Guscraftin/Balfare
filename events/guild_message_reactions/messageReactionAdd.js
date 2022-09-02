@@ -7,22 +7,34 @@ module.exports = {
         const fetchGuild = await client.getGuild(messageReaction.message.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
         if (logChannel == undefined) return;
+        const emojiName = messageReaction.emoji.name;
 
         const embed = new EmbedBuilder()
             .setAuthor({ name: user.username, iconURL: user.displayAvatarURL() })
             .setColor('#009ECA')
-            .setDescription(`**<@${user.id}> a ajouté sa réaction \`${messageReaction.emoji.name}\` [à ce message](${messageReaction.message.url}).**
+            .setDescription(`**<@${user.id}> a ajouté sa réaction ${isDefaultEmoji() ? `\`${messageReaction.emoji.name}\`` : `<:${messageReaction.emoji.name}:${messageReaction.emoji.id}>`} [à ce message](${messageReaction.message.url}).**
             `)
             .setTimestamp()
             .setFooter({ text: messageReaction.message.guild.name, iconURL: messageReaction.message.guild.iconURL() })
 
         logChannel.send({ embeds: [embed] });
 
+        function isDefaultEmoji() {
+            // Marche mais pas opti
 
+            let listLetter = emojiName.match(/[a-z]/gi);
+            let listNumber = emojiName.match(/[0-9]/gi);
+            let listTiret = emojiName.match(/_/gi);
+            if (listLetter === null) listLetter = [];
+            if (listNumber === null) listNumber = [];
+            if (listTiret === null) listTiret = [];
+            const listCorrect = listLetter.concat(listNumber).concat(listTiret);
+            
+            return listCorrect.length != emojiName.length;
+        }
 
 
         const message = messageReaction.message;
-        const emojiName = messageReaction.emoji.name;
         const member = message.guild.members.cache.get(user.id);
         if (member.user.bot) return;
 
