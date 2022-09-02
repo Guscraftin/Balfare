@@ -1,6 +1,8 @@
 const { EmbedBuilder } = require('discord.js');
 
 // Non test car c'est le compte utilisateur qui doit changer
+// avatar - banner - Flags (badge)
+// Utile tag avec Discriminant + Peusdo ?
 
 module.exports = {
     name: 'userUpdate',
@@ -9,9 +11,6 @@ module.exports = {
         const fetchGuild = await client.getGuild(newUser.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
         if (logChannel == undefined) return;
-
-        // avatar - banner - Flags (badge)
-        // Utile tag avec Discriminant + Peusdo ?
 
         const embed = new EmbedBuilder()
             .setAuthor({ name: newUser.tag, iconURL: newUser.displayAvatarURL() })
