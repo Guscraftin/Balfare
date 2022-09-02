@@ -11,7 +11,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle(`Création d'un emoji`)
             .setColor('#009ECA')
-            .setDescription(`**L'emoji ${emoji} a été créé par ${emoji.author === null ? `\`un inconnu\`` : `<@${emoji.author.id}>`}.**
+            .setDescription(`**L'emoji ${emoji} a été créé par ${emoji.author === null ? `\`un modérateur\`` : `<@${emoji.author.id}>`}.**
             > **Nom:Id :** \`${emoji.identifier}\`
             > **Emoji animé :** \`${emoji.animated ? `Oui` : `Non` }\`
             `)

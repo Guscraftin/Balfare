@@ -13,7 +13,7 @@ module.exports = {
             .setColor('#009ECA')
             .setDescription(`**L'autocollant \`${sticker.name}\` a été supprimé.**
             > **Emoji similaire :** :${sticker.tags}:
-            > **Auteur :** ${sticker.user === null ? `\`inconnu\`` : `<@${sticker.user.id}>`}
+            > **Auteur :** ${sticker.user === null ? `\`un modérateur\`` : `<@${sticker.user.id}>`}
             ${sticker.description !== '' ? `>>> **Description :** \`\`\`${sticker.description}\`\`\`` : `` }
             `)
             .setImage(sticker.url)

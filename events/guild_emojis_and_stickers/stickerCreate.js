@@ -11,7 +11,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle(`Création d'un autocollant`)
             .setColor('#009ECA')
-            .setDescription(`**L'autocollant \`${sticker.name}\` a été créé par ${sticker.user === null ? `\`un inconnu\`` : `<@${sticker.user.id}>`}.**
+            .setDescription(`**L'autocollant \`${sticker.name}\` a été créé par ${sticker.user === null ? `\`un modérateur\`` : `<@${sticker.user.id}>`}.**
             > **Emoji similaire :** :${sticker.tags}:
             ${sticker.description !== '' ? `>>> **Description :** \`\`\`${sticker.description}\`\`\`` : `` }
             `)
