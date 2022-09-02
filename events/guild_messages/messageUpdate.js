@@ -5,6 +5,8 @@ const { EmbedBuilder } = require('discord.js');
 // **Attention** à la longueur maximum de message (afficher que le début) car renvoie des erreurs
 // Attention au message contenant des embed ou fichier / lien car n'apparait pas
 
+// Fix quand suppr message de création de thread
+
 module.exports = {
     name: 'messageUpdate',
     once: false,

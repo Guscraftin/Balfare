@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Avatar + Bannier + Couleur... (truc nitro)
+// Bannier + Couleur... (truc nitro)
 
 module.exports = {
     name: 'guildMemberUpdate',

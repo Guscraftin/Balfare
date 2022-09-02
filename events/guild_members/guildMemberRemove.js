@@ -1,5 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
+// revoir l'affichage du kick + ajouter si ban
+
 module.exports = {
     name: 'guildMemberRemove',
     once: false,
