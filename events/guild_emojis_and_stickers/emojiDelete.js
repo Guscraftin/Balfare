@@ -1,7 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Qui a créer l'émoji
-
 module.exports = {
     name: 'emojiDelete',
     once: false,
@@ -15,6 +13,7 @@ module.exports = {
             .setColor('#009ECA')
             .setDescription(`**L'emoji \`${emoji.name}\` a été supprimé.**
             > **Nom:Id :** \`${emoji.identifier}\`
+            > **Auteur :** ${emoji.author === null ? `\`un inconnu\`` : `<@${emoji.author.id}>`}
             > **Emoji animé :** \`${emoji.animated ? `Oui` : `Non` }\`
             `)
             .setThumbnail(emoji.url)
