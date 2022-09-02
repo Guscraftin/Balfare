@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Ajouter Icone + Bannière + ManagePermissionInteraction + features (partenaire, boost...)
+// Ajouter Icone + Bannière + ManagePermissionInteraction + features (partenaire, boost, pause invite...)
 // Revoir les détails de dessous
 
 module.exports = {
