@@ -11,7 +11,9 @@
 - messageDelete.js              -> Plus de détails
 - messageDeleteBulk.js          -> Plus de détails
 - messageUpdate.js              -> Plus de détails
-- à partir de guild_messages et descendre
+
+- Faire la catégorie des guild_scheduled_events
+- à partir de guild_voice_states et descendre
 
 ## Quand transfert sur le vrai bot :
 

@@ -20,10 +20,10 @@ module.exports = {
         logChannel.send({ embeds: [embed] });
 
         function isDefaultEmoji() {
-            let listTest = emojiName.match(/[0-9a-z_]/gi);
-            if (listTest === null) listTest = [];
+            let testEmojiName = emojiName.match(/[0-9a-z_]/gi);
+            if (testEmojiName === null) testEmojiName = [];
 
-            return listTest.length != emojiName.length;
+            return testEmojiName.length != emojiName.length;
         }
 
 
