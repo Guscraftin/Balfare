@@ -1,7 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Ajouter si relier à un événement - niveau de privacy de la conférence
-
 module.exports = {
     name: 'stageInstanceCreate',
     once: false,
@@ -14,6 +12,7 @@ module.exports = {
             .setTitle(`Création d'une conférence`)
             .setColor('#009ECA')
             .setDescription(`La conférence \`${stageInstance.topic}\` a été **créée** dans le salon ${stageInstance.channel}.
+            ${stageInstance.guildScheduledEvent != null ? `> **Evenement lié :** [${stageInstance.guildScheduledEvent.name}](${stageInstance.guildScheduledEvent})` : ``}
             `)
             .setTimestamp()
             .setFooter({ text: stageInstance.guild.name, iconURL: stageInstance.guild.iconURL() })

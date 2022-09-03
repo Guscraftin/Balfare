@@ -1,7 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Ajouter si relier à un événement - niveau de privacy de la conférence
-
 module.exports = {
     name: 'stageInstanceUpdate',
     once: false,

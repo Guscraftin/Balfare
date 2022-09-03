@@ -1,7 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Détails des changements du webhooks
-
 module.exports = {
     name: 'webhookUpdate',
     once: false,

@@ -8,12 +8,14 @@
 - guildMemberUpdate.js          -> Ajouter les trucs nitro
 - messageReactionRemoveAll.js   -> Ajouter les membres qui avaient réagit
 - messageReactionRemoveEmoji.js -> Ajouter les membres qui avaient réagit
-- messageDelete.js              -> Plus de détails
-- messageDeleteBulk.js          -> Plus de détails
-- messageUpdate.js              -> Plus de détails
+- messageDelete.js              -> Plus de détails (notamment embed)
+- messageDeleteBulk.js          -> Plus de détails (notamment embed)
+- messageUpdate.js              -> Plus de détails (notamment embed)
 
 - Faire la catégorie des guild_scheduled_events
 - à partir de guild_voice_states et descendre
+
+- stageInstanceDelete.js        -> Envoie le message 2 fois
 
 ## Quand transfert sur le vrai bot :
 
