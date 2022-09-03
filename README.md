@@ -8,6 +8,9 @@
 - guildMemberUpdate.js          -> Ajouter les trucs nitro
 - messageReactionRemoveAll.js   -> Ajouter les membres qui avaient réagit
 - messageReactionRemoveEmoji.js -> Ajouter les membres qui avaient réagit
+- messageDelete.js              -> Plus de détails
+- messageDeleteBulk.js          -> Plus de détails
+- messageUpdate.js              -> Plus de détails
 - à partir de guild_messages et descendre
 
 ## Quand transfert sur le vrai bot :
