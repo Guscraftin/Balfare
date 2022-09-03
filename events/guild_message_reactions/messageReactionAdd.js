@@ -20,17 +20,10 @@ module.exports = {
         logChannel.send({ embeds: [embed] });
 
         function isDefaultEmoji() {
-            // Marche mais pas opti
+            let listTest = emojiName.match(/[0-9a-z_]/gi);
+            if (listTest === null) listTest = [];
 
-            let listLetter = emojiName.match(/[a-z]/gi);
-            let listNumber = emojiName.match(/[0-9]/gi);
-            let listTiret = emojiName.match(/_/gi);
-            if (listLetter === null) listLetter = [];
-            if (listNumber === null) listNumber = [];
-            if (listTiret === null) listTiret = [];
-            const listCorrect = listLetter.concat(listNumber).concat(listTiret);
-            
-            return listCorrect.length != emojiName.length;
+            return listTest.length != emojiName.length;
         }
 
 

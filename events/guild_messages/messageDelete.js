@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Plus de détails sur les messages supprimé
+// Plus de détails sur les messages supprimé (comme qui avait réagit au messages et avec quoi)
 // Message vide quand suppr message d'un bot suite à une slash commande
 // Attention au message contenant des embed ou fichier / lien car n'apparait pas
 
