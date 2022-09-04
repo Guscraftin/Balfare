@@ -1,7 +1,5 @@
 const { EmbedBuilder, PermissionsBitField } = require('discord.js');
 
-// Quand la position du rôle a changé - Image du rôle pour nitro a changé
-
 module.exports = {
     name: 'roleUpdate',
     once: false,
@@ -9,21 +7,38 @@ module.exports = {
         const fetchGuild = await client.getGuild(newRole.guild);
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
         if (logChannel == undefined) return;
+        if (oldRole.rawPosition != newRole.rawPosition) return;
         const oldPermissions = oldRole.permissions;
         const newPermissions = newRole.permissions;
+
+        if (oldRole.iconURL() === newRole.iconURL())
+        {
+            const noIconEmbed = new EmbedBuilder()
+                .setTitle(`Modification d'un rôle`)
+                .setColor('#009ECA')
+                .setDescription(`**Le rôle \`${newRole.name}\` a été modifié**.
+                ${oldRole.name != newRole.name ? `> **Nom :** \`${oldRole.name}\` => \`${newRole.name}\`\n` : `` } ${oldRole.hexColor != newRole.hexColor ? `> **Couleur :** \`${oldRole.hexColor}\` => \`${newRole.hexColor}\`\n` : `` } ${oldRole.mentionable != newRole.mentionable ? `> **Mentionnable :** \`${oldRole.mentionable ? `Oui` : `Non`}\` => \`${newRole.mentionable ? `Oui` : `Non`}\`\n` : `` } ${oldRole.hoist != newRole.hoist ? `> **Affiché séparément :** \`${oldRole.hoist ? `Oui` : `Non`}\` => \`${newRole.hoist ? `Oui` : `Non`}\`\n` : `` }
+                `)
+                .addFields(setListFields())
+                .setTimestamp()
+                .setFooter({ text: newRole.guild.name, iconURL: newRole.guild.iconURL() })
         
-        const embed = new EmbedBuilder()
-            .setTitle(`Modification d'un rôle`)
-            .setColor('#009ECA')
-            .setDescription(`**Le rôle \`${newRole.name}\` a été modifié**.
-            ${oldRole.name != newRole.name ? `> **Nom :** \`${oldRole.name}\` => \`${newRole.name}\`\n` : `` } ${oldRole.hexColor != newRole.hexColor ? `> **Couleur :** \`${oldRole.hexColor}\` => \`${newRole.hexColor}\`\n` : `` } ${oldRole.mentionable != newRole.mentionable ? `> **Mentionnable :** \`${oldRole.mentionable ? `Oui` : `Non`}\` => \`${newRole.mentionable ? `Oui` : `Non`}\`\n` : `` } ${oldRole.hoist != newRole.hoist ? `> **Affiché séparément :** \`${oldRole.hoist ? `Oui` : `Non`}\` => \`${newRole.hoist ? `Oui` : `Non`}\`\n` : `` }
-            `)
-            .addFields(setListFields())
-            .setTimestamp()
-            .setFooter({ text: newRole.guild.name, iconURL: newRole.guild.iconURL() })
-    
-        if (oldRole.rawPosition != newRole.rawPosition) return;
-        logChannel.send({ embeds: [embed] });
+            logChannel.send({ embeds: [noIconEmbed] });
+        } else {
+            const iconEmbed = new EmbedBuilder()
+                .setTitle(`Modification d'un rôle`)
+                .setColor('#009ECA')
+                .setThumbnail(oldRole.iconURL())
+                .setDescription(`**Le rôle \`${newRole.name}\` a été modifié**.
+                ${oldRole.name != newRole.name ? `> **Nom :** \`${oldRole.name}\` => \`${newRole.name}\`\n` : `` } ${oldRole.hexColor != newRole.hexColor ? `> **Couleur :** \`${oldRole.hexColor}\` => \`${newRole.hexColor}\`\n` : `` } ${oldRole.mentionable != newRole.mentionable ? `> **Mentionnable :** \`${oldRole.mentionable ? `Oui` : `Non`}\` => \`${newRole.mentionable ? `Oui` : `Non`}\`\n` : `` } ${oldRole.hoist != newRole.hoist ? `> **Affiché séparément :** \`${oldRole.hoist ? `Oui` : `Non`}\` => \`${newRole.hoist ? `Oui` : `Non`}\`\n` : `` }
+                `)
+                .addFields(setListFields())
+                .setImage(newRole.iconURL())
+                .setTimestamp()
+                .setFooter({ text: newRole.guild.name, iconURL: newRole.guild.iconURL() })
+        
+            logChannel.send({ embeds: [iconEmbed] });
+        }
 
 
         function setListFields() {
