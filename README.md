@@ -14,9 +14,13 @@
 - voiceStateUpdate.js           -> Fix demande de parole dans stage : quand quitte la scène main se lève et se baisse
 
 - Faire la catégorie des guild_scheduled_events
-- à partir de guild_voice_states et descendre
 
+- channelCreate.js              -> Plus de détails (tout faire)
+- channelDelete.js              -> Plus de détails (pour tout salon)
+- channelUpdate.js              -> Plus de détails (tout faire)
+- guildUpdate.js                -> Plus de détails (notamment fonctionnalitée nitro)
 - stageInstanceDelete.js        -> Envoie le message 2 fois
+
 
 ## Quand transfert sur le vrai bot :
 
