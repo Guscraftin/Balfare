@@ -12,6 +12,7 @@ module.exports = {
         const oldCustomStatus = oldPresence.activities.find((activitie) => activitie.name === 'Custom Status');
         const newCustomStatus = newPresence.activities.find((activitie) => activitie.name === 'Custom Status');
         if (oldCustomStatus !== undefined && newCustomStatus !== undefined && oldCustomStatus.state === newCustomStatus.state) return;
+        if (oldCustomStatus === undefined && newCustomStatus === undefined) return;
 
         const embed = new EmbedBuilder()
             .setAuthor({ name: newPresence.user.tag, iconURL: newPresence.user.displayAvatarURL() })
