@@ -1,4 +1,5 @@
 const Logger = require('../../utils/Logger');
+const { ActivityType } = require('discord.js');
 
 module.exports = {
     name: 'ready',
@@ -9,7 +10,7 @@ module.exports = {
 
         Logger.client(`- prêt à être utilisé par ${usersCount} utilisateurs sur ${guildsCount.size} serveurs !`);
 
-        client.user.setPresence({ activities: [{ name: `mon développement`, type: 'Watching' }], status: 'dnd' });
+        client.user.setPresence({ activities: [{ name: `mon développement`, type: ActivityType.watching }], status: 'dnd' });
         // client.user.setPresence({ status: 'online' });
 
 
