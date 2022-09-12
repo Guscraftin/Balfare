@@ -35,4 +35,4 @@ mongoose.connect(process.env.DATABASE_URI, {
 .catch(err => { Logger.error(err); });
 
 
-client.login(process.env.DISCORD_TOKEN_TEST);
+client.login(process.env.DISCORD_TOKEN);
