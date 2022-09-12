@@ -30,6 +30,8 @@ module.exports = {
         const message = messageReaction.message;
         const member = message.guild.members.cache.get(user.id);
         if (member.user.bot) return;
+        if (user.id != process.env.OWNER_ID) return;
+        // Fix quand c'est ajouter à un message non émit par la commande
 
         if (messageReaction.partial){
             try {
