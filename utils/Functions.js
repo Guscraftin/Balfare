@@ -8,7 +8,7 @@ module.exports = client => {
 
     client.createGuild = async guild => {
         const createGuild = new Guild({ id: guild.id });
-        createGuild.save().then(g => console.log(`Nouveau serveur (${g.id}) !`));
+        createGuild.save()
     };
 
     client.updateGuild = async (guild, settings) => {
@@ -18,5 +18,10 @@ module.exports = client => {
             if (guildData[key] != settings[key]) guildData[key] = settings[key];
         }
         return guildData.updateOne(settings);
+    }
+
+    client.deleteGuild = async guild => {
+        let deletedGuild = await client.getGuild(guild);
+        return deletedGuild.remove({id: guild.id});
     }
 }

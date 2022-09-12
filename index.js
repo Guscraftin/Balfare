@@ -1,7 +1,7 @@
 const { Client, Collection, Partials } = require('discord.js');
 const dotenv = require('dotenv'); dotenv.config();
 const mongoose = require('mongoose');
-const client = new Client({ intents: 1539, partials: [Partials.User, Partials.Channel, Partials.Message, Partials.Reaction] });
+const client = new Client({ intents: 100351, partials: [Partials.User, Partials.Channel, Partials.Message, Partials.Reaction, Partials.GuildMember, Partials.GuildScheduledEvent, Partials.ThreadMember] });
 const Logger = require('./utils/Logger');
 
 
@@ -35,4 +35,4 @@ mongoose.connect(process.env.DATABASE_URI, {
 .catch(err => { Logger.error(err); });
 
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN_TEST);

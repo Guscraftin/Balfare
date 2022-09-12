@@ -56,7 +56,7 @@ Exemples: ${prefix}${cmd.examples.join(` | ${prefix}`)}
 
 ---
 
-${prefix} = prefix utiliser pour le bot (/comandes sont aussi disponibles)
+${prefix} = prefix utilisé pour le bot (c'est à dire qu'il faut utiliser les slash commandes)
 {} = sous-commande(s) disponible(s) | [] = option(s) obligatoire(s) | <> = option(s) optionnelle(s)
 Ne pas inclure ces caractères -> {}, [] et <> dans vos commandes.
         \`\`\``, ephemeral: true});
