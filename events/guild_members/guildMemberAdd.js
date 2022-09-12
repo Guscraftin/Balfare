@@ -1,5 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
+// Diff entre bot et membre
+
 module.exports = {
     name: 'guildMemberAdd',
     once: false,

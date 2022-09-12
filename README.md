@@ -3,7 +3,8 @@
 -> Revoir tous les logs en les finalisant + ajouter des try catch si manque des perms (pour éviter erreur et prévenir des perms à ajouter) ou si un jour à cause MAJ devient à null ou innacessible + Plus agréable à lire et un thème et une méthode commune [Comme les titres]
 
 - userUpdate.js                 => Tout faire car pas test
-- guildMemberRemove.js          => Revoir l'affichage si ban ou kick
+- guildMemberAdd.js             => Diff bot / membre
+- guildMemberRemove.js          => Revoir l'affichage si ban ou kick + Diff bot / membre
 - guildMemberUpdate.js          => Ajouter les trucs nitro
 - messageReactionRemoveAll.js   -> Ajouter les membres qui avaient réagit
 - messageReactionRemoveEmoji.js -> Ajouter les membres qui avaient réagit

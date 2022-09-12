@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 
+// Diff entre bot et membre
 // revoir l'affichage du kick + ajouter si ban
 
 module.exports = {
