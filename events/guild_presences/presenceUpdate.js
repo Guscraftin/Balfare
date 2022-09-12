@@ -1,5 +1,8 @@
 const { EmbedBuilder } = require('discord.js');
 
+// Si statut perso est le même que celui d'un message de log présédent car il s'est déco, ne pas l'afficher
+// OU si gens change de status genre déco, n'affiche pas de message de changement de status perso
+
 module.exports = {
     name: 'presenceUpdate',
     once: false,
