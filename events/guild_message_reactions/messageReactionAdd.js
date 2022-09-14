@@ -1,5 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
+// Fix si utile ou pas farire action en fonction des reactions à un message. (Starboard ?)
+
 module.exports = {
     name: 'messageReactionAdd',
     once: false,
@@ -44,10 +46,10 @@ module.exports = {
 
         switch (emojiName) {
             case '🟥':
-                message.delete();
+                // message.delete();
                 break;
             case '🟦':
-                message.reactions.removeAll();
+                // message.reactions.removeAll();
                 break;
             case '🟩':
                 message.channel.send('Je suis le carré vert: 🟩 !');
@@ -56,7 +58,7 @@ module.exports = {
                 member.send('Salut !');
                 break;
             case '🟨':
-                message.reactions.resolve(messageReaction.remove());
+                // message.reactions.resolve(messageReaction.remove());
                 break;
         }
     }

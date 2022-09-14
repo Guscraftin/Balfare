@@ -6,12 +6,14 @@
 - guildMemberAdd.js             => Diff bot / membre
 - guildMemberRemove.js          => Revoir l'affichage si ban ou kick + Diff bot / membre
 - guildMemberUpdate.js          => Ajouter les trucs nitro
+- messageReactionAdd.js         -> Fix si utile de faire des actions quand on réagit à des messages
 - messageReactionRemoveAll.js   -> Ajouter les membres qui avaient réagit
 - messageReactionRemoveEmoji.js -> Ajouter les membres qui avaient réagit
 - messageDelete.js              ==> Plus de détails (notamment embed)
 - messageDeleteBulk.js          ==> Plus de détails (notamment embed)
 - messageUpdate.js              ==> Plus de détails (notamment embed)
 - voiceStateUpdate.js           -> Fix demande de parole dans stage : quand quitte la scène main se lève et se baisse
+- presenceUpdate.js             -> Fix le status qui se met toujours à jour (vraiment utile en log ? juste stats ?)
 
 - Faire la catégorie des guild_scheduled_events
 
