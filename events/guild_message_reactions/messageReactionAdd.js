@@ -1,5 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
+// + revoir les emojis qui ne viennet pas des serveurs où le bot est (cas des nitro)
+
 module.exports = {
     name: 'messageReactionAdd',
     once: false,
