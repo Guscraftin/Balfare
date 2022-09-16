@@ -1,6 +1,6 @@
 # Choses à faire :
 
--> Revoir tous les logs en les finalisant + ajouter des try catch si manque des perms (pour éviter erreur et prévenir des perms à ajouter) ou si un jour à cause MAJ devient à null ou innacessible + Plus agréable à lire et un thème et une méthode commune [Comme les titres]
+-> Revoir tous les logs en les finalisant + ajouter des try catch si manque des perms (pour éviter erreur et prévenir des perms à ajouter comme dans debug) ou si un jour à cause MAJ devient à null ou innacessible + Plus agréable à lire et un thème et une méthode commune [Comme les titres]
 
 - userUpdate.js                 => Tout faire car pas test
 - guildMemberAdd.js             => Diff bot / membre
