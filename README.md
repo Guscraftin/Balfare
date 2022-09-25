@@ -12,8 +12,8 @@
 - messageDelete.js              ==> Plus de détails (notamment embed)
 - messageDeleteBulk.js          ==> Plus de détails (notamment embed)
 - messageUpdate.js              ==> Plus de détails (notamment embed)
-- voiceStateUpdate.js           -> Fix demande de parole dans stage : quand quitte la scène main se lève et se baisse
-- presenceUpdate.js             -> Fix le status qui se met toujours à jour (vraiment utile en log ? juste stats ?)
+- voiceStateUpdate.js           -> Fix demande de parole dans stage
+- presenceUpdate.js             -> Inutile ? Suppr le fichier ?
 
 - Faire la catégorie des guild_scheduled_events
 

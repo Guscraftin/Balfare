@@ -1,6 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
 // Tout détaillé : perms, sujet...
+// Attention update quand les salons bouge de place dans la hierarchie
 
 module.exports = {
     name: 'channelUpdate',
