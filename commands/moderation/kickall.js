@@ -1,15 +1,15 @@
 const { PermissionsBitField } = require('discord.js');
 
-// Can kick everyone by being Owner
+// Avec une option qui def quels gens avec ce rôle ou non kick
 
 module.exports = {
-    name: 'kickall',
-    category: 'temporaire',
+    name: 'kick-all-with-role',
+    category: 'moderation',
     permissions: ['ADMINISTRATOR'],
     ownerOnly: true,
-    usage: 'kickall',
-    examples: ['kickall'],
-    description: "Kick tous les utilisateurs qui n'ont pas de rôle avec un message en MP.",
+    usage: 'kick-all-with-role',
+    examples: ['kick-all-with-role'],
+    description: "Kick tous les utilisateurs qui ont le(s) rôle(s) et leur envoie une invite en MP.",
     async runInteraction (client, interaction) {
         let inviteURL;
         let channel;
