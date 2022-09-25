@@ -1,8 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Fix demande de parole dans stage dans embedDeaf:
-// ${oldState.requestToSpeakTimestamp !== 0 && newState.requestToSpeakTimestamp === null ? `> ✋ **Demande la parole dans Stage :** \`Oui\` => \`Non\`\n` : ``} ${oldState.requestToSpeakTimestamp === null && newState.requestToSpeakTimestamp !== 0 ? `> ✋ **Demande la parole dans Stage :** \`Non\` => \`Oui\`` : ``}
-
 module.exports = {
     name: 'voiceStateUpdate',
     once: false,
