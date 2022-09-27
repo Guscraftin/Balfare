@@ -1,6 +1,6 @@
 const { PermissionsBitField } = require('discord.js');
 
-// Avec une option qui def quels gens avec ce rôle ou non kick
+// Avec une option qui def quels gens avec ce rôle ou non kick et si c'est les gens que avec ces rôles ou si c'est au moins ces rôles
 
 module.exports = {
     name: 'kick-all-with-role',

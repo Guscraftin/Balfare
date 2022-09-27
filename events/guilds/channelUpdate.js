@@ -13,6 +13,8 @@ module.exports = {
         const oldPermissions = oldChannel.permissions;
         const newPermissions = newChannel.permissions;
         
+        if (oldChannel.rawPosition !== newChannel.rawPosition) return; // A replacer plus tard
+        
         if (newChannel.type === 0) {
             const embedTextuel = new EmbedBuilder()
                 .setTitle(`Modification d'un salon textuel`)

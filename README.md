@@ -8,6 +8,7 @@
 - Revoir tous les logs en les finalisant
 - Ajouter des try catch si manque des perms (pour éviter erreur et prévenir des perms à ajouter comme dans debug) ou si un jour à cause MAJ devient à null ou innacessible
 - Ajouter un thème au bot pour que ce soit plus agréable à lire et qu'il y ai une personnalité
+- Corriger les warnings du bot (regarder via le serv)
 
 ### Logs
 
@@ -15,6 +16,7 @@
 - guildMemberAdd.js             => Diff bot / membre
 - guildMemberRemove.js          => Revoir l'affichage si ban ou kick + Diff bot / membre
 - guildMemberUpdate.js          => Ajouter les trucs nitro
+- threadMembersUpdate           => Quand mentionne plusieurs pers dans un message pour rejoindre le fil, seul le premier est dans les logs
 - messageReactionAdd.js         -> Fix si utile de faire des actions quand on réagit à des messages
 - messageReactionRemoveAll.js   -> Ajouter les membres qui avaient réagit
 - messageReactionRemoveEmoji.js -> Ajouter les membres qui avaient réagit
@@ -31,6 +33,7 @@
 - guildUpdate.js                => Plus de détails (notamment fonctionnalitée nitro)
 - stageInstanceDelete.js        -> Envoie le message 2 fois
 
++ Ajouter les id partout pour avec les commande info, récupérer facilement des informations
 + Gérer les salons spéciaux communauté (stage, forum, annonce, événements)
 + Gérer les fonctionnalités nitro
 
@@ -39,6 +42,12 @@
 
 - Ajouter que seul les gens avec les bonnes perms peuvent voir les commandes qu'ils peuvent excécuter
 - Revoir toutes les commandes pour les personnalisées, voir si on les garde, mettre les bonnes perms...
+
+- kick-all-with-role            -> Avec une option qui def quels gens avec ce rôle ou non kick et si c'est les gens que avec ces rôles ou si c'est au moins ces rôles
+
+### Bugs
+
+- Quand quitte un serv et qu'on est dans un thread
 
 ### Autre
 

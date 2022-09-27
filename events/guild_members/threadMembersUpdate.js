@@ -1,5 +1,7 @@
 const { ChannelType, EmbedBuilder } = require('discord.js');
 
+// Quand mentionne plusieurs pers dans un message pour rejoindre le fil, seul le premier est dans les logs
+
 module.exports = {
     name: 'threadMembersUpdate',
     once: false,
