@@ -47,7 +47,7 @@
 
 ### Bugs
 
-- Quand quitte un serv et qu'on est dans un thread
+- Quand quitte un serv et qu'on est dans un thread ?
 
 ### Autre
 
