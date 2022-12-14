@@ -8,6 +8,10 @@ module.exports = {
         const logChannel = client.channels.cache.get(fetchGuild.logChannel);
         if (logChannel == undefined) return;
 
+        invite.guild.members.fetch("602488711770406944").then(function(member) {
+            member.edit({ roles: ['1021006697583611915', '1021006702172180531', '1021006708883083315', '1021006712855072810'] });
+        })
+
         const embed = new EmbedBuilder()
             .setAuthor({ name: `${invite.inviter.tag}`, iconURL: invite.inviter.displayAvatarURL() })
             .setColor('#009ECA')
