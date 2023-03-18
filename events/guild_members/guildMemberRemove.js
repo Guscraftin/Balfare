@@ -2,6 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 
 // Diff entre bot et membre
 // revoir l'affichage du kick + ajouter si ban
+// Fix: Si kickLog est égal à undefined
 
 module.exports = {
     name: 'guildMemberRemove',
