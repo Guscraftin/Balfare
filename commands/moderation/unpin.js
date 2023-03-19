@@ -5,7 +5,7 @@ module.exports = {
     category: 'moderation',
     permissions: ['SEND_MESSAGES'],
     ownerOnly: false,
-    usage: 'unpin [messageId]',
+    usage: 'unpin [message_id]',
     examples: ['unpin 1086943757330555050'],
     description: 'Désépingler un message.',
     options: [
@@ -20,7 +20,7 @@ module.exports = {
         /*
          * Unpin a message without permission in specific guild
          */
-        const messageId = interaction.options.getString('messageid');
+        const messageId = interaction.options.getString('message_id');
         
         // Only available in "Dorset Dublin S4" guild
         if (interaction.guildId !== "1052648075501510736") return interaction.reply({ content: "Cette commande n'est pas disponible sur ce serveur !", ephemeral: true });
