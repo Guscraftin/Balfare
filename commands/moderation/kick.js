@@ -9,7 +9,7 @@ module.exports = {
     permissions: ['KICK_MEMBERS'],
     ownerOnly: false,
     usage: 'kick [@member] [reason]',
-    examples: ['kick @Alfare Spam'],
+    examples: ['kick @Balfare Spam'],
     description: 'Kick un utilisateur avec une raison.',
     options: [
         {

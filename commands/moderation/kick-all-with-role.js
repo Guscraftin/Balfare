@@ -29,7 +29,7 @@ module.exports = {
                 if (user.roles.cache.size == 1 && !user.user.bot && user.kickable) {
                     async function sendMpMessage() {
                         try {
-                            await user.send(`Bonjour, je suis \`Alfare\`, l'assistant virtuel du serveur **${interaction.guild.name}**.\nJe te contacte suite à ton expulsion du serveur, car tu n'as pas accepté le règlement avant le temps imparti.\n\nSi tu souhaites __retourner sur le serveur__, voici le lien d'invitation : ${inviteURL}`);
+                            await user.send(`Bonjour, je suis \`Balfare\`, l'assistant virtuel du serveur **${interaction.guild.name}**.\nJe te contacte suite à ton expulsion du serveur, car tu n'as pas accepté le règlement avant le temps imparti.\n\nSi tu souhaites __retourner sur le serveur__, voici le lien d'invitation : ${inviteURL}`);
                             console.log(`${user.user.tag}(${user.id}) a bien reçu son MP.`);
                         } 
                         catch(e) {

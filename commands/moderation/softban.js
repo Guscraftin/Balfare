@@ -9,7 +9,7 @@ module.exports = {
     permissions: ['BAN_MEMBERS'],
     ownerOnly: false,
     usage: 'ban [@member] [duration] [reason]',
-    examples: ['ban @Alfare 4 Spam', 'ban @Alfare 6 Spam massif'],
+    examples: ['ban @Balfare 4 Spam', 'ban @Balfare 6 Spam massif'],
     description: 'Bannir un utilisateur temporairement avec une raison.',
     options: [
         {

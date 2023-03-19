@@ -8,7 +8,7 @@ module.exports = {
     permissions: ['MANAGE_MESSAGES'],
     ownerOnly: false,
     usage: 'clear [amount] <@target>',
-    examples: ['clear 50', 'clear 50 @Alfare'],
+    examples: ['clear 50', 'clear 50 @Balfare'],
     description: 'Supprimer un nombre de message spécifié sur un salon ou un utilisateur.',
     options: [
         {

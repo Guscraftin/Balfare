@@ -8,7 +8,7 @@ module.exports = {
     permissions: ['MODERATE_MEMBERS'],
     ownerOnly: false,
     usage: 'unmute [@member]',
-    examples: ['unmute @Alfare'],
+    examples: ['unmute @Balfare'],
     description: 'Démute un utilisateur.',
     options: [
         {

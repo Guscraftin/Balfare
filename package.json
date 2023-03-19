@@ -1,6 +1,6 @@
 {
-  "name": "alfare",
-  "version": "0.1.0",
+  "name": "balfare",
+  "version": "1.0.0",
   "description": "A general private discord bot",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Guscraftin-Dev/Alfare.git"
+    "url": "git+https://github.com/Guscraftin-Dev/Balfare.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Guscraftin-Dev/Alfare/issues"
+    "url": "https://github.com/Guscraftin-Dev/Balfare/issues"
   },
-  "homepage": "https://github.com/Guscraftin-Dev/Alfare#readme",
+  "homepage": "https://github.com/Guscraftin-Dev/Balfare#readme",
   "dependencies": {
     "chalk": "4.1.2",
     "dayjs": "1.10.7",

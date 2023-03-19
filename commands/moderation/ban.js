@@ -9,7 +9,7 @@ module.exports = {
     permissions: ['BAN_MEMBERS'],
     ownerOnly: false,
     usage: 'ban [@member] [reason]',
-    examples: ['ban @Alfare Spam'],
+    examples: ['ban @Balfare Spam'],
     description: 'Bannir un utilisateur avec une raison.',
     options: [
         {
