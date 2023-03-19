@@ -26,7 +26,6 @@ module.exports = {
 
         // Logs for pinned messages
         if (oldMessage.pinned != newMessage.pinned) {
-            console.log(oldMessage.pinned, newMessage.pinned)
             embed
                 .setDescription(`**Message envoyé par <@${newMessage.author.id}> ${newMessage.pinned === true ? "épinglé" : "désépinglé"} dans ${newMessage.channel}.** [Aller au message.](${newMessage.url})
                 `)
