@@ -22,7 +22,9 @@ module.exports = {
                 if (interaction.user.id != ownerId) return interaction.reply("La seule personne pouvant taper cette commande est l'owner du bot !");
             }
 
-            if (interaction.user.id != ownerId || !interaction.member.permissions.has([cmd.permissions])) return interaction.reply({ content: `Vous n'avez pas la/les permission(s) requise(s) (\`${cmd.permissions.join(', ')}\`) pour taper cette commande !`, ephemeral: true });
+            if (interaction.command.name !== "pin" && interaction.command.name !== "unpin") {
+                if (interaction.user.id != ownerId || !interaction.member.permissions.has([cmd.permissions])) return interaction.reply({ content: `Vous n'avez pas la/les permission(s) requise(s) (\`${cmd.permissions.join(', ')}\`) pour taper cette commande !`, ephemeral: true });
+            }
 
             cmd.runInteraction(client, interaction, guildSettings);
         } else if (interaction.isButton()) {

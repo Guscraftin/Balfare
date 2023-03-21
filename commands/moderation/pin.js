@@ -3,7 +3,6 @@ const { ApplicationCommandOptionType } = require('discord.js');
 module.exports = {
     name: 'pin',
     category: 'moderation',
-    permissions: ['SEND_MESSAGES'],
     ownerOnly: false,
     usage: 'pin [message_id]',
     examples: ['pin 1086943757330555050'],

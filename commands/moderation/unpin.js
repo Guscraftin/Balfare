@@ -3,7 +3,6 @@ const { ApplicationCommandOptionType } = require('discord.js');
 module.exports = {
     name: 'unpin',
     category: 'moderation',
-    permissions: ['SEND_MESSAGES'],
     ownerOnly: false,
     usage: 'unpin [message_id]',
     examples: ['unpin 1086943757330555050'],

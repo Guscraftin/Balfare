@@ -14,19 +14,21 @@ module.exports = async client => {
 
         if (!cmd.category) return Logger.warn(`Commande non chargée : ajouter une catégorie à votre commande ↓\nFichier -> ${cmdFile}`);
 
-        if (!cmd.permissions) return Logger.warn(`Commande non chargée : ajouter des permissions à votre commande ↓\nFichier -> ${cmdFile}`);
-
         if (cmd.ownerOnly == undefined) return Logger.warn(`Commande non chargée : indiquer si la commande est OwnerOnly ↓\nFichier -> ${cmdFile}`);
 
         if (!cmd.usage) return Logger.warn(`Commande non chargée : ajouter une utilisation (usage) à votre commande ↓\nFichier -> ${cmdFile}`);
 
         if (!cmd.examples) return Logger.warn(`Commande non chargée : ajouter des exemples (examples) à votre commande ↓\nFichier -> ${cmdFile}`);
 
-        cmd.permissions.forEach(permission => {
-            if (!permissionList.includes(permission)){
-                return Logger.typo(`Commande non chargée : erreur de typo sur la permission ${permission} ↓\nFichier -> ${cmdFile}`);
-            }
-        });
+        if (cmd.name !== "pin" && cmd.name !== "unpin") {
+            if (!cmd.permissions) return Logger.warn(`Commande non chargée : ajouter des permissions à votre commande ↓\nFichier -> ${cmdFile}`);
+
+            cmd.permissions.forEach(permission => {
+                if (!permissionList.includes(permission)){
+                    return Logger.typo(`Commande non chargée : erreur de typo sur la permission ${permission} ↓\nFichier -> ${cmdFile}`);
+                }
+            });
+        }
 
         client.commands.set(cmd.name, cmd);
         Logger.command(`- ${cmd.name}`);
