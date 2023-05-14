@@ -14,7 +14,7 @@
 
 - userUpdate.js                 => Tout faire car pas test
 - guildMemberAdd.js             => Diff bot / membre
-- guildMemberRemove.js          => Revoir l'affichage si ban ou kick + Diff bot / membre
+- guildMemberRemove.js          => Revoir l'affichage si ban ou kick + Diff bot / membre + Depuis cb de temps il était sur le serv
 - guildMemberUpdate.js          => Ajouter les trucs nitro
 - threadMembersUpdate           => Quand mentionne plusieurs pers dans un message pour rejoindre le fil, seul le premier est dans les logs
 - messageReactionAdd.js         -> Fix si utile de faire des actions quand on réagit à des messages
