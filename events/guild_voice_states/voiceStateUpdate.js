@@ -12,7 +12,7 @@ module.exports = {
             const embedJoin = new EmbedBuilder()
                 .setAuthor({ name: newState.member.user.tag, iconURL: newState.member.displayAvatarURL() })
                 .setColor('#009ECA')
-                .setDescription(`<@${newState.member.id}> **a rejoint le salon vocal ${newState.channel} ||(\`${newState.channel.name}\`)||.**
+                .setDescription(`<@${newState.member.id}> **a rejoint le salon vocal ${newState.channel} ||(\`${newState?.channel?.name}\`)||.**
                 `)
                 .setTimestamp()
                 .setFooter({ text: newState.guild.name, iconURL: newState.guild.iconURL() })
@@ -23,7 +23,7 @@ module.exports = {
             const embedLeave = new EmbedBuilder()
                 .setAuthor({ name: oldState.member.user.tag, iconURL: oldState.member.displayAvatarURL() })
                 .setColor('#009ECA')
-                .setDescription(`<@${oldState.member.id}> **a quitté le salon vocal ${oldState.channel} ||(\`${oldState.channel.name}\`)||.**
+                .setDescription(`<@${oldState.member.id}> **a quitté le salon vocal ${oldState.channel} ||(\`${oldState?.channel?.name}\`)||.**
                 `)
                 .setTimestamp()
                 .setFooter({ text: oldState.guild.name, iconURL: oldState.guild.iconURL() })
@@ -35,7 +35,7 @@ module.exports = {
                 .setAuthor({ name: oldState.member.user.tag, iconURL: oldState.member.displayAvatarURL() })
                 .setColor('#009ECA')
                 .setDescription(`<@${oldState.member.id}> **a changé de salon vocal ${oldState.channel} => ${newState.channel}.**
-                ||(\`${oldState.channel.name}\` => \`${newState.channel.name}\`)||
+                ||(\`${oldState?.channel?.name}\` => \`${newState?.channel?.name}\`)||
                 `)
                 .setTimestamp()
                 .setFooter({ text: oldState.guild.name, iconURL: oldState.guild.iconURL() })
