@@ -17,11 +17,12 @@ module.exports = {
             type: 20
         });
 
-        const kickLog = fetchKickLog.entries.first();
-        const { target, reason } = kickLog;
         let isMemberKick = false;
+        const kickLog = fetchKickLog.entries.first();
+        const target = kickLog?.target;
+        const reason = kickLog?.reason;
 
-        if (target.id === member.id) isMemberKick = true;
+        if (target?.id === member.id) isMemberKick = true;
 
         const embed = new EmbedBuilder()
             .setAuthor({ name: `${member.user.tag} (${member.id})`, iconURL: member.user.displayAvatarURL() })
