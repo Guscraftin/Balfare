@@ -19,7 +19,7 @@ module.exports = {
         if (oldMessage.channelId === logChannel.id) return;
 
         let embed = new EmbedBuilder()
-            .setAuthor({ name: newMessage.author.tag, iconURL: newMessage.author.displayAvatarURL() })
+            .setAuthor({ name: newMessage.author?.tag, iconURL: newMessage.author.displayAvatarURL() })
             .setColor('#009ECA')
             .setTimestamp()
             .setFooter({ text: newMessage.guild.name, iconURL: newMessage.guild.iconURL() })
